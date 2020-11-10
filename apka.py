@@ -17,15 +17,14 @@ class Application:
 
         dok = make_list()
         dok.sort(key=Doc.sort_time)
+
         i = 0
         while i < len(dok):
-
             Label(text=dok[i].short(), bg="#000033", fg="#F0FF62", font=("Calibri", 12)) \
                 .grid(row=i, column=0, sticky=W)
             i += 1
 
         menubar = Menu(self.root)
-
         filemenu = Menu(menubar, tearoff=0)
         filemenu.add_command(label="Najbliższe", command=self.near)
         filemenu.add_command(label="Najdalsze", command=self.far)
@@ -35,7 +34,6 @@ class Application:
         filemenu.add_separator()
         filemenu.add_command(label="Zakończ", command=self.root.destroy)
         menubar.add_cascade(label="Zobacz szczegóły", menu=filemenu)
-
         self.root.config(menu=menubar)
 
     @staticmethod
@@ -50,10 +48,12 @@ class Application:
                  font=("Calibri", 12), padx=20, pady=5)
         dok = make_list()
         dok.sort(key=Doc.sort_time)
+
         i = 0
         while i < len(dok):
             t.insert(END, str(dok[i]) + "\n")
             i += 1
+
         t.pack(side=TOP, fill=X)
         t.configure(state='disabled')
         v.config(command=t.yview)
@@ -71,10 +71,12 @@ class Application:
                  font=("Calibri", 12), padx=20, pady=5)
         dok = make_list()
         dok.sort(key=Doc.sort_time, reverse=True)
+
         i = 0
         while i < len(dok):
             t.insert(END, str(dok[i]) + "\n")
             i += 1
+
         t.pack(side=TOP, fill=X)
         t.configure(state='disabled')
         v.config(command=t.yview)
@@ -92,10 +94,12 @@ class Application:
                  font=("Calibri", 12), padx=20, pady=5)
         dok = make_list()
         dok.sort(key=Doc.sort_name)
+
         i = 0
         while i < len(dok):
             t.insert(END, str(dok[i]) + "\n")
             i += 1
+
         t.pack(side=TOP, fill=X)
         t.configure(state='disabled')
         v.config(command=t.yview)
@@ -113,10 +117,12 @@ class Application:
                  font=("Calibri", 12), padx=20, pady=5)
         dok = make_list()
         dok.sort(key=Doc.sort_name, reverse=True)
+
         i = 0
         while i < len(dok):
             t.insert(END, str(dok[i]) + "\n")
             i += 1
+
         t.pack(side=TOP, fill=X)
         t.configure(state='disabled')
         v.config(command=t.yview)
