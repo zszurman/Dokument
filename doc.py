@@ -52,6 +52,40 @@ class Doc:
         else:
             return str(dy) + str2 + str(dd) + str1 + str3
 
+    @property
+    def interval_short(self):
+        day1 = datetime.datetime.strptime(self.date, "%d.%m.%Y")
+        x1 = day1.timestamp()
+
+        y = datetime.datetime.now()
+        day2 = datetime.datetime(y.year, y.month, y.day)
+        x2 = day2.timestamp()
+
+        dx = int((x1 - x2) / (60 * 60 * 24))
+        dy = int(dx // 365.25)
+        dd = int(dx % 365.25)
+
+        str1 = " dni "
+        if dd == 1:
+            str1 = " dzień "
+
+        str2 = " lat i "
+        if dy == 1 or dy == -1:
+            str2 = " rok i "
+        if (2 <= dy % 10 <= 4) and (dy < 10 or dy > 20):
+            str2 = " lata i "
+        if dy == -2 or dy == -3 or dy == -4:
+            str2 = " lata i "
+
+        if dy == 0:
+            return "Za " + str(dx) + str1 + "  " + self.name
+        elif dy > 30:
+            return self.name
+        elif dx < 0:
+            return "Termin upłynął  " + self.name
+        else:
+            return "Za " + str(dy) + str2 + str(dd) + str1 + "  " + self.name
+
     def sort_time(self):
         x = datetime.datetime.strptime(self.date, "%d.%m.%Y")
         return x.timestamp()

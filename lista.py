@@ -114,7 +114,7 @@ def make_list_dok():
         Doc("Mama Rydułtowy", "28.02.2021",
             "Zapłacić pomiędzy 16.01 a 28.02 ", "Odszkodowanie 1 550 zł."),
 
-        Doc("Mama Dane", "31.12.2100",
+        Doc("Mama Dane", "30.11.2100",
             "PESEL 360402 11841", "Karta 9563"),
 
         Doc("Mama Komórka", "6.04.2022",

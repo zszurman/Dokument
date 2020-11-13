@@ -18,9 +18,9 @@ class Application:
 
     def make_window(self):
 
-        Label(text="Dokumenty", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=20, pady=5) \
+        Label(text="Dokumenty", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
             .grid(row=0, column=3, sticky=W)
-        Label(text="Urodziny i Rocznice", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=20, pady=5) \
+        Label(text="Urodziny i Rocznice", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
             .grid(row=0, column=1, sticky=W)
 
         dok = make_list_dok()
@@ -28,17 +28,17 @@ class Application:
         i = 0
         while i < len(dok):
             if dok[i].interval_int() < 0:
-                photo = PhotoImage(file='drawable/ic_zby.png')
-            elif dok[i].interval_int() < 32:
-                photo = PhotoImage(file='drawable/ic_ele.png')
-            elif dok[i].interval_int() < 62:
-                photo = PhotoImage(file='drawable/ic_han.png')
+                photo = PhotoImage(file='drawable/ic_notok.png')
+            elif dok[i].interval_int() < 31:
+                photo = PhotoImage(file='drawable/ic_war.png')
+            elif dok[i].interval_int() < 61:
+                photo = PhotoImage(file='drawable/ic_war2.png')
             else:
-                photo = PhotoImage(file='drawable/ic_zos.png')
+                photo = PhotoImage(file='drawable/ic_ok.png')
             w = Label(image=photo)
             w.photo = photo
             w.grid(row=i + 1, column=2)
-            Label(text=dok[i].short(), bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=20, pady=5) \
+            Label(text=dok[i].interval_short, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40, pady=5) \
                 .grid(row=i + 1, column=3, sticky=W)
             i += 1
 
@@ -50,7 +50,7 @@ class Application:
             w = Label(image=photo)
             w.photo = photo
             w.grid(row=i + 1, column=0)
-            Label(text=rodz[i].short_str(), bg="#000033", fg="#F0FF62", font=("Calibri", 12)) \
+            Label(text=rodz[i].short_str(), bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40, pady=5) \
                 .grid(row=i + 1, column=1, sticky=W)
             i += 1
 
