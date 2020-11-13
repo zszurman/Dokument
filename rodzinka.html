@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9a5883e47d7942d6a299ca1376c0f0d6 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_9a5883e47d7942d6a299ca1376c0f0d6" ></div>
+        
+</body>
+<script>    
+    
+            var map_9a5883e47d7942d6a299ca1376c0f0d6 = L.map(
+                "map_9a5883e47d7942d6a299ca1376c0f0d6",
+                {
+                    center: [50.23069, 18.6626],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 17,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+
+            
+
+        
+    
+            var tile_layer_02c3a349c3f54e94a4550fcfd865f9e9 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var marker_bb55214425c644ce8ca761457bb859eb = L.marker(
+                [49.986, 18.42051],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_023d7a4197ae43b28e98fefb2458a40c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-home", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_bb55214425c644ce8ca761457bb859eb.setIcon(icon_023d7a4197ae43b28e98fefb2458a40c);
+        
+    
+        var popup_df1d1c791b3047c8b45e2212311d3b7f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c6ee4ca2e3824c1e8f93ebe5e87fe88b = $(`<div id="html_c6ee4ca2e3824c1e8f93ebe5e87fe88b" style="width: 100.0%; height: 100.0%;">44-352 Czyżowice, Wodzisławska 10</div>`)[0];
+            popup_df1d1c791b3047c8b45e2212311d3b7f.setContent(html_c6ee4ca2e3824c1e8f93ebe5e87fe88b);
+        
+
+        marker_bb55214425c644ce8ca761457bb859eb.bindPopup(popup_df1d1c791b3047c8b45e2212311d3b7f)
+        ;
+
+        
+    
+    
+            marker_bb55214425c644ce8ca761457bb859eb.bindTooltip(
+                `<div>
+                     Agnieszka, Jolanta i Zbigniew Szurman
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_2a264eba8a034bfc9a73b0dbea174d25 = L.marker(
+                [49.13556, 9.18322],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_97a5204e051247c8bf5b52e6d8bfca52 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-heart", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_2a264eba8a034bfc9a73b0dbea174d25.setIcon(icon_97a5204e051247c8bf5b52e6d8bfca52);
+        
+    
+        var popup_b5c78d6e23494499b344d5d0a1bb7db1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bc02f31a42b2417ba9381b0979897e2b = $(`<div id="html_bc02f31a42b2417ba9381b0979897e2b" style="width: 100.0%; height: 100.0%;">74080 Heilbronn, Heckenstrasse 56</div>`)[0];
+            popup_b5c78d6e23494499b344d5d0a1bb7db1.setContent(html_bc02f31a42b2417ba9381b0979897e2b);
+        
+
+        marker_2a264eba8a034bfc9a73b0dbea174d25.bindPopup(popup_b5c78d6e23494499b344d5d0a1bb7db1)
+        ;
+
+        
+    
+    
+            marker_2a264eba8a034bfc9a73b0dbea174d25.bindTooltip(
+                `<div>
+                     Elena, Hanna, Patrycja i Łukasz Czerwińscy
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_22f4387ca36b413793b9343fc54e4b6c = L.marker(
+                [50.23069, 18.66263],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_82ced95ca6364263904db6fa84965f1c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-heart", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_22f4387ca36b413793b9343fc54e4b6c.setIcon(icon_82ced95ca6364263904db6fa84965f1c);
+        
+    
+        var popup_05b666c124d24835a0612523704d3e99 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6cca55a062434dd1a7d2a9c1d1129185 = $(`<div id="html_6cca55a062434dd1a7d2a9c1d1129185" style="width: 100.0%; height: 100.0%;">44-195 Knurów, Mieszka I 17B/2</div>`)[0];
+            popup_05b666c124d24835a0612523704d3e99.setContent(html_6cca55a062434dd1a7d2a9c1d1129185);
+        
+
+        marker_22f4387ca36b413793b9343fc54e4b6c.bindPopup(popup_05b666c124d24835a0612523704d3e99)
+        ;
+
+        
+    
+    
+            marker_22f4387ca36b413793b9343fc54e4b6c.bindTooltip(
+                `<div>
+                     Zofia, Izabela i Błażej Szurman
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8f75aa50302d482dbad8b7462e711596 = L.marker(
+                [50.30197, 18.64435],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_4148e0fb302f49bb884125b4fcb741c0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-heart", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_8f75aa50302d482dbad8b7462e711596.setIcon(icon_4148e0fb302f49bb884125b4fcb741c0);
+        
+    
+        var popup_11f2cc921ba54c61a64e147fb09e9d73 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7f53f6e5d68d429381b84b5289a1c81d = $(`<div id="html_7f53f6e5d68d429381b84b5289a1c81d" style="width: 100.0%; height: 100.0%;">44-121 Gliwice, Kozielska 63/3</div>`)[0];
+            popup_11f2cc921ba54c61a64e147fb09e9d73.setContent(html_7f53f6e5d68d429381b84b5289a1c81d);
+        
+
+        marker_8f75aa50302d482dbad8b7462e711596.bindPopup(popup_11f2cc921ba54c61a64e147fb09e9d73)
+        ;
+
+        
+    
+    
+            marker_8f75aa50302d482dbad8b7462e711596.bindTooltip(
+                `<div>
+                     Florentyna i Krystian Copiak
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_1885eda78c1e4b3a9dacb7e8c092421a = L.marker(
+                [49.81506, 19.0283],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_3d546fb8bcd84f52855b3455a0d1c0e7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-heart", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_1885eda78c1e4b3a9dacb7e8c092421a.setIcon(icon_3d546fb8bcd84f52855b3455a0d1c0e7);
+        
+    
+        var popup_83dca0194cea4e0980cdf520918ebc95 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a28cb8fc4a0441ad9c30fce1b6295020 = $(`<div id="html_a28cb8fc4a0441ad9c30fce1b6295020" style="width: 100.0%; height: 100.0%;">44-300 Bielsko-Biała, Jacka Malczewskiego 8/32</div>`)[0];
+            popup_83dca0194cea4e0980cdf520918ebc95.setContent(html_a28cb8fc4a0441ad9c30fce1b6295020);
+        
+
+        marker_1885eda78c1e4b3a9dacb7e8c092421a.bindPopup(popup_83dca0194cea4e0980cdf520918ebc95)
+        ;
+
+        
+    
+    
+            marker_1885eda78c1e4b3a9dacb7e8c092421a.bindTooltip(
+                `<div>
+                     Antonina i Szymon Jaskuła
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_202244401af14fd3bab98a70bd5b49f2 = L.marker(
+                [50.74028, 16.64504],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_0798ca96633a453e8a23077752445d97 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-user", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_202244401af14fd3bab98a70bd5b49f2.setIcon(icon_0798ca96633a453e8a23077752445d97);
+        
+    
+        var popup_f631a8ce882948368752107cd8293a3d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_129de7ab3e7e4cdab0096c60ee39b376 = $(`<div id="html_129de7ab3e7e4cdab0096c60ee39b376" style="width: 100.0%; height: 100.0%;">58-200 Dzierżoniów, Oś.Błękitne 10G/7</div>`)[0];
+            popup_f631a8ce882948368752107cd8293a3d.setContent(html_129de7ab3e7e4cdab0096c60ee39b376);
+        
+
+        marker_202244401af14fd3bab98a70bd5b49f2.bindPopup(popup_f631a8ce882948368752107cd8293a3d)
+        ;
+
+        
+    
+    
+            marker_202244401af14fd3bab98a70bd5b49f2.bindTooltip(
+                `<div>
+                     Wiktor Morończyk
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_10ba5043735c4cb3828b3a54a2bfa1c0 = L.marker(
+                [50.00158, 19.77959],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_8eb5b030d160461db2a0ff757fc0c033 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-user", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_10ba5043735c4cb3828b3a54a2bfa1c0.setIcon(icon_8eb5b030d160461db2a0ff757fc0c033);
+        
+    
+        var popup_eb61d0706d614c5fb9ae2aba4f3ea2d8 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_366c30cf944d44daa25b88ea3faf0b93 = $(`<div id="html_366c30cf944d44daa25b88ea3faf0b93" style="width: 100.0%; height: 100.0%;">32-060 Liszki, Ściejowice 174</div>`)[0];
+            popup_eb61d0706d614c5fb9ae2aba4f3ea2d8.setContent(html_366c30cf944d44daa25b88ea3faf0b93);
+        
+
+        marker_10ba5043735c4cb3828b3a54a2bfa1c0.bindPopup(popup_eb61d0706d614c5fb9ae2aba4f3ea2d8)
+        ;
+
+        
+    
+    
+            marker_10ba5043735c4cb3828b3a54a2bfa1c0.bindTooltip(
+                `<div>
+                     Jan, Maria i Krzysztof Dzierżęga
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0f79c05f37af432db4f1e96bd9dacffc = L.marker(
+                [50.03111, 20.21154],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_e60b22982f784e02b7deb3a38f8187e4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-user", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_0f79c05f37af432db4f1e96bd9dacffc.setIcon(icon_e60b22982f784e02b7deb3a38f8187e4);
+        
+    
+        var popup_75bf973829f84087b7bf4061663bce52 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f1bf38f94a904bc2ae0125868e2c9c4f = $(`<div id="html_f1bf38f94a904bc2ae0125868e2c9c4f" style="width: 100.0%; height: 100.0%;">32-005 Niepołomice, Daszyńskiego 2A</div>`)[0];
+            popup_75bf973829f84087b7bf4061663bce52.setContent(html_f1bf38f94a904bc2ae0125868e2c9c4f);
+        
+
+        marker_0f79c05f37af432db4f1e96bd9dacffc.bindPopup(popup_75bf973829f84087b7bf4061663bce52)
+        ;
+
+        
+    
+    
+            marker_0f79c05f37af432db4f1e96bd9dacffc.bindTooltip(
+                `<div>
+                      Julia, Iwona i Adam Morończyk
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_6c58172ae55d4087a7f1664f1c2ea71d = L.marker(
+                [49.88891, 19.10136],
+                {}
+            ).addTo(map_9a5883e47d7942d6a299ca1376c0f0d6);
+        
+    
+            var icon_16703b77b6654f77831e7f91f2c8ca0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "glyphicon-user", "iconColor": "white", "markerColor": "pink", "prefix": "glyphicon"}
+            );
+            marker_6c58172ae55d4087a7f1664f1c2ea71d.setIcon(icon_16703b77b6654f77831e7f91f2c8ca0b);
+        
+    
+        var popup_93fd4c160de34077a6bc10b79df6536f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_116147f583e740498e144e67b0347ff0 = $(`<div id="html_116147f583e740498e144e67b0347ff0" style="width: 100.0%; height: 100.0%;">43-512 Bestwina Janowice, Łanowa 5</div>`)[0];
+            popup_93fd4c160de34077a6bc10b79df6536f.setContent(html_116147f583e740498e144e67b0347ff0);
+        
+
+        marker_6c58172ae55d4087a7f1664f1c2ea71d.bindPopup(popup_93fd4c160de34077a6bc10b79df6536f)
+        ;
+
+        
+    
+    
+            marker_6c58172ae55d4087a7f1664f1c2ea71d.bindTooltip(
+                `<div>
+                      Oliwier, Wojciech, Marzena i Aleksander Morończyk
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>

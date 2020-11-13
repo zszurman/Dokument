@@ -1,7 +1,10 @@
-from klasa import Doc
+from doc import Doc
+from bday import Bday
+import folium
+import webbrowser
 
 
-def make_list():
+def make_list_dok():
     return [
         Doc("Dowód Osobisty Zbyszek", "30.05.2027",
             "Wydany 30.05.2017 przez Wójta Gminy Gorzyce", "Seria CEU 826 321, PESEL 640426 06934"),
@@ -118,3 +121,145 @@ def make_list():
             "tel. +48 692 394 293, 24 doładowania po 50 zł. do 16 dnia m-ca",
             "PIN 9885, agnieszkaszurman71@gmail.com, Szekzby12"),
     ]
+
+
+def make_list_bday():
+    return [
+        Bday("Agnieszka", "Szurman", 1936, 4, 2, "+48 692 394 293", "44-352 Czyżowice, Wodzisławska 10", "", "u",
+             "drawable/ic_agn.png"),
+
+        Bday("Wiktor", "Morończyk", 1939, 2, 19, "+48 694 227 067", "58-200 Dzierżoniów, Oś. Błękitne 10 G/7", "",
+             "u",
+             "drawable/ic_wik.png"),
+
+        Bday("Jolanta", "Szurman", 1964, 11, 10, "+48 698 385 284", "44-352 Czyżowice, Wodzisławska 10",
+             "jolszurman@wp.pl", "u", "drawable/ic_jol.png"),
+
+        Bday("Zbigniew", "Szurman", 1964, 4, 26, "+48 604 733 938", "44-352 Czyżowice, Wodzisławska 10",
+             "zszurman@wp.pl", "u", "drawable/ic_zby.png"),
+
+        Bday("Patrycja", "Czerwińska", 1989, 2, 7, "+49 157 521 161 15", "74080 Heilbronn, Heckenstrasse 56",
+             "czerwinska.patrycja@gmail.com", "u", "drawable/ic_pat.png"),
+
+        Bday("Łukasz", "Czerwiński", 1989, 1, 31, "+49 157 758 799 59", "74080 Heilbronn, Heckenstrasse 56",
+             "czerwinski.lukasz@gmail.com", "u", "drawable/ic_luk.png"),
+
+        Bday("Hanna", "Czerwińska", 2013, 4, 17, "", "74080 Heilbronn, Heckenstrasse 56", "", "u",
+             "drawable/ic_han.png"),
+
+        Bday("Elena", "Czerwińska", 2018, 7, 23, "", "74080 Heilbronn, Heckenstrasse 56", "", "u",
+             "drawable/ic_ele.png"),
+
+        Bday("Izabela", "Szurman", 1990, 8, 18, "+48 505 340 391", "44-195 Knurów, Mieszka I 17B/2",
+             "izabela.stach@onet.eu", "u", "drawable/ic_iza.png"),
+
+        Bday("Błażej", "Szurman", 1990, 7, 29, "+48 517 507 343", "44-195 Knurów, Mieszka I 17B/2",
+             "szumi.bs@gmail.com", "u", "drawable/ic_bla.png"),
+
+        Bday("Zofia", "Szurman", 2014, 4, 28, "", "44-195 Knurów, Mieszka I 17B/2", "", "u", "drawable/ic_zos.png"),
+
+        Bday("Florentyna", "Copiak", 1991, 11, 1, "+48 511 270 102", "44-121 Gliwice, Kozielska 63/3",
+             "florentyna.szurman@gmail.com", "u", "drawable/ic_flo.png"),
+
+        Bday("Krystian", "Copiak", 1988, 7, 24, "+48 509 974 131", "44-121 Gliwice, Kozielska 63/3",
+             "krystiancopiak@gmail.com", "u", "drawable/ic_kry.png"),
+
+        Bday("Antonina", "Jaskuła", 1994, 7, 11, "+48 724 104 003",
+             "43-300 Bielsko-Biała, Jacka Malczewskiego 8/32",
+             "antoninaszurman@gmail.com", "u", "drawable/ic_ant.png"),
+
+        Bday("Szymon", "Jaskuła", 1994, 10, 1, "+48 510 109 217", "43-300 Bielsko-Biała, Jacka Malczewskiego 8/32",
+             "", "u", "drawable/ic_szy.png"),
+
+        Bday("Maria", "Dzierżęga", 1963, 3, 28, "+48 661 326 123", "32-060 Liszki, Ściejowice 174", "", "u",
+             "drawable/ic_mar.png"),
+
+        Bday("Krzysztof", "Dzierżęga", 1963, 3, 8, "+48 691 082 424", "32-060 Liszki, Ściejowice 174",
+             "krzysztof.dzierzega@edu.pl", "u", "drawable/ic_krz.png"),
+        Bday("Jan", "Dzierżęga", 1999, 10, 4, "+48 884 902 965", "32-060 Liszki, Ściejowice 174", "", "u",
+             "drawable/ic_jan.png"),
+
+        Bday("Iwona", "Morończyk", 1970, 5, 16, "+48 666 922 776", "32-005 Niepołomice, Daszyńskiego 2A", "", "u",
+             "drawable/ic_iwo.png"),
+
+        Bday("Adam", "Morończyk", 1969, 10, 13, "+48 784 057 962", "32-005 Niepołomice, Daszyńskiego 2A", "", "u",
+             "drawable/ic_ada.png"),
+
+        Bday("Julia", "Morończyk", 2009, 8, 10, "", "32-005 Niepołomice, Daszyńskiego 2A", "", "u",
+             "drawable/ic_jul.png"),
+
+        Bday("Marzena", "Morończyk", 1977, 7, 9, "+48 603 286 161", "43-512 Bestwina, Janowice, Łanowa 5", "", "u",
+             "drawable/ic_mrz.png"),
+
+        Bday("Aleksander", "Morończyk", 1976, 2, 18, "+48 695 984 509", "43-512 Bestwina, Janowice, Łanowa 5", "",
+             "u",
+             "drawable/ic_ale.png"),
+
+        Bday("Wojciech", "Morończyk", 2008, 9, 7, "+48 781 339 222", "43-512 Bestwina, Janowice, Łanowa 5", "", "u",
+             "drawable/ic_woj.png"),
+
+        Bday("Oliwier", "Morończyk", 2010, 9, 22, "+48 730 392 072", "43-512 Bestwina, Janowice, Łanowa 5", "", "u",
+             "drawable/ic_oli.png"),
+
+        Bday("Jola & Zbyszek", "Szurman", 1988, 10, 1, "",
+             "(ślub cywilny 3.09.19988 w Bestwinie)\nKościół św. Józefa Robotnika w Janowicach", "", "r",
+             "drawable/ic_slub.png"),
+
+        Bday("Pati & Łukasz", "Czerwińscy", 2012, 10, 28, "", "Kościół pw. Chrystusa Króla w Czyżowicach", "", "r",
+             "drawable/ic_slub.png"),
+        Bday("Iza & Błażej", "Szurman", 2013, 10, 12, "", "Kościół pw. Chrystusa Króla w Czyżowicach", "", "r",
+             "drawable/ic_slub.png"),
+
+        Bday("Flora & Krystian", "Copiak", 2018, 7, 21, "", "Kościół pw. Chrystusa Króla w Czyżowicach", "", "r",
+             "drawable/ic_slub.png"),
+
+        Bday("Tosia & Szymek", "Jaskuła", 2020, 4, 25, "", "Kościół pw. Św. Jana Nepomucena w Jaworzu", "", "r",
+             "drawable/ic_slub.png"),
+
+        Bday("Zdzisława", "Copiak", 1960, 12, 18, "+48 694 044 924", "29-100 Dąbie, Dąbie 48A", "", "u",
+             "drawable/ic_zco.png"),
+
+        Bday("Adam", "Copiak", 1956, 11, 8, "+48 692 982 930", "29-100 Dąbie, Dąbie 48A", "", "u",
+             "drawable/ic_aco.png")
+    ]
+
+
+def make_map(lat, lon, zoom):
+    mapka = folium.Map(location=[lat, lon], zoom_start=zoom, control_scale=True)
+
+    def marker_home(m, la, lng, popup, tooltip):
+        folium.Marker(location=[la, lng], popup=popup, tooltip=tooltip, icon=folium.Icon(
+            icon='glyphicon-home', color='pink', prefix='glyphicon')).add_to(m)
+
+    def marker_user(m, la, lng, popup, tooltip):
+        folium.Marker(location=[la, lng], popup=popup, tooltip=tooltip, icon=folium.Icon(
+            icon='glyphicon-user', color='pink', prefix='glyphicon')).add_to(m)
+
+    def marker_heart(m, la, lng, popup, tooltip):
+        folium.Marker(location=[la, lng], popup=popup, tooltip=tooltip, icon=folium.Icon(
+            icon='glyphicon-heart', color='pink', prefix='glyphicon')).add_to(m)
+
+    marker_home(mapka, 49.986, 18.42051, '44-352 Czyżowice, Wodzisławska 10',
+                'Agnieszka, Jolanta i Zbigniew Szurman')
+    marker_heart(mapka, 49.13556, 9.18322, '74080 Heilbronn, Heckenstrasse 56',
+                 'Elena, Hanna, Patrycja i Łukasz Czerwińscy')
+    marker_heart(mapka, 50.23069, 18.66263, '44-195 Knurów, Mieszka I 17B/2',
+                 'Zofia, Izabela i Błażej Szurman')
+    marker_heart(mapka, 50.30197, 18.64435, '44-121 Gliwice, Kozielska 63/3',
+                 'Florentyna i Krystian Copiak')
+    marker_heart(mapka, 49.81506, 19.0283, '44-300 Bielsko-Biała, Jacka Malczewskiego 8/32',
+                 'Antonina i Szymon Jaskuła')
+    marker_user(mapka, 50.74028, 16.64504, '58-200 Dzierżoniów, Oś.Błękitne 10G/7', 'Wiktor Morończyk')
+    marker_user(mapka, 50.00158, 19.77959, '32-060 Liszki, Ściejowice 174',
+                'Jan, Maria i Krzysztof Dzierżęga')
+    marker_user(mapka, 50.03111, 20.21154, '32-005 Niepołomice, Daszyńskiego 2A',
+                ' Julia, Iwona i Adam Morończyk')
+    marker_user(mapka, 49.88891, 19.10136, '43-512 Bestwina Janowice, Łanowa 5',
+                ' Oliwier, Wojciech, Marzena i Aleksander Morończyk')
+
+    fileHtml = "rodzinka.html"
+    mapka.save(fileHtml)
+    html_page = f"{fileHtml}"
+    mapka.save(html_page)
+    new = 2
+    webbrowser.open(html_page, new=new)

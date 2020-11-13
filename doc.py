@@ -8,6 +8,14 @@ class Doc:
         self.info1 = info1
         self.info2 = info2
 
+    def interval_int(self):
+        day1 = datetime.datetime.strptime(self.date, "%d.%m.%Y")
+        x1 = day1.timestamp()
+        y = datetime.datetime.now()
+        day2 = datetime.datetime(y.year, y.month, y.day)
+        x2 = day2.timestamp()
+        return int((x1 - x2) / (60 * 60 * 24))
+
     @property
     def interval(self):
         day1 = datetime.datetime.strptime(self.date, "%d.%m.%Y")
