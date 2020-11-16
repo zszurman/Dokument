@@ -1,4 +1,5 @@
 from doc import Doc
+from cyf import Cyf
 from bday import Bday
 import folium
 import webbrowser
@@ -75,51 +76,74 @@ def make_list_dok():
         Doc("Paszport Zbyszek", "10.06.2029",
             "Wydany 10.06.2019 przez Wojewodę Śląskiego", "Nr paszportu ES 8129824"),
 
-        Doc("WP", "31.12.2100",
-            "zszurman@wp.pl  Szekzby12  Szekzby12@  ",
-            "WP pilot, Ipla, Spotify, Tauron, Allegro, Booking, Polar, FB, Cubase, Vitay"),
-
-        Doc("GMAIL", "31.12.2100",
-            "zszurman@gmail.com  Szekzby12", "Sygic"),
-
         Doc("Karta Revolut", "31.07.2024",
             "Mastercard", "Karta walutowa"),
-
-        Doc("Legitymacja Emeryta - Rencisty", "31.12.2100",
-            "Nr 34/12/E/004006/16\nRybnik 25.07.2016 ZUS Oddział w Rybniku", "Nr świadczenia KGE/25/07/182682"),
-
-        Doc("PKO", "31.12.2100",
-            "32000079   50724921  (18 1020 2472 0000 6902 0107 7205)",
-            "SamwBarze12  Mojastopa64  2975  3390  Szekzby12  Szekzby12@"),
-
-        Doc("PZU", "31.12.2100",
-            "Szekzby12@", "mojepzu.pl"),
-
-        Doc("GitHub", "31.12.2100",
-            "zszurman", "Szekzby12"),
-
-        Doc("Sygic", "31.12.2100",
-            "KOD 7VXR-P6RK-VPEH-65MP", "zszurman@gmail.com"),
-
-        Doc("Netflix", "31.12.2100",
-            "szumi.bs@gmail.com, fcbarcelona", "I, IV, VII, X - po 52 zł."),
-
-        Doc("Chomik", "31.12.2100",
-            "zszurman@wp.pl", "zima1964"),
-
-        Doc("Mama PZU", "31.12.2100",
-            "raty do 28.02, 31.05, 31.08, 30.11, kwota 129.45 zł.",
-            "rata obejmuje 3 m-ce (m-c wpłaty + 2 następne)\nsuma ubezpieczenia 6 100 zł."),
 
         Doc("Mama Rydułtowy", "28.02.2021",
             "Zapłacić pomiędzy 16.01 a 28.02 ", "Odszkodowanie 1 550 zł."),
 
-        Doc("Mama Dane", "30.11.2100",
-            "PESEL 360402 11841", "Karta 9563"),
-
         Doc("Mama Komórka", "6.04.2022",
             "tel. +48 692 394 293, 24 doładowania po 50 zł. do 16 dnia m-ca",
             "PIN 9885, agnieszkaszurman71@gmail.com, Szekzby12"),
+    ]
+
+
+def make_list_cyf():
+    return [
+
+        Cyf("GSU",
+            "Karta rabatowa  102 107 202 254, nr klienta  1153087\nSzekzby12@",
+            "Po 71.50 zł.do 10 dnia poprzedzającego m-ca ", 'drawable/ic_gsu.png'),
+
+        Cyf("WP",
+            "zszurman@wp.pl  Szekzby12  Szekzby12@  ",
+            "WP pilot, Ipla, Spotify, Tauron, Allegro, Booking, Polar, FB, Cubase, Vitay", 'drawable/ic_wp.png'),
+
+        Cyf("GMAIL",
+            "zszurman@gmail.com  Szekzby12", "Sygic", 'drawable/ic_gmail.png'),
+
+        Cyf("Legitymacja Emeryta - Rencisty",
+            "Nr 34/12/E/004006/16\nRybnik 25.07.2016 ZUS Oddział w Rybniku", "Nr świadczenia KGE/25/07/182682",
+            'drawable/ic_zus.png'),
+
+        Cyf("PKO",
+            "32000079   50724921  (18 1020 2472 0000 6902 0107 7205)",
+            "SamwBarze12  Mojastopa64  2975  3390  Szekzby12  Szekzby12@", 'drawable/ic_pko.png'),
+
+        Cyf("PZU",
+            "Szekzby12@", "mojepzu.pl", 'drawable/ic_pzu.png'),
+
+        Cyf("GitHub",
+            "zszurman", "Szekzby12", 'drawable/ic_git.png'),
+
+        Cyf("Sygic",
+            "KOD 7VXR-P6RK-VPEH-65MP", "zszurman@gmail.com", 'drawable/ic_sygic.png'),
+
+        Cyf("Netflix",
+            "szumi.bs@gmail.com, fcbarcelona", "I, IV, VII, X - po 52 zł.", 'drawable/ic_net.png'),
+
+        Cyf("Chomik",
+            "zszurman@wp.pl", "zima1964", 'drawable/ic_chomik.png'),
+
+        Cyf("Mama PZU",
+            "raty do 28.02, 31.05, 31.08, 30.11, kwota 129.45 zł.",
+            "rata obejmuje 3 m-ce (m-c wpłaty + 2 następne)\nsuma ubezpieczenia 6 100 zł.", 'drawable/ic_pzu.png'),
+
+        Cyf("Mama Dane",
+            "PESEL 360402 11841", "Karta 9563", 'drawable/ic_agn.png'),
+
+        Cyf("Cubase AI 10.5",
+            "Activation Code", "0240 7COA OZAG KJRS CNPO XK00 F142 8B32", 'drawable/ic_cub.png'),
+
+        Cyf("Cubase AI 8.0",
+            "Activation Code", "0240 7CDA RPFO TVSM VBLD XR00 14D4 8C45", 'drawable/ic_cub.png'),
+
+        Cyf("PESEL",
+            "Jola  641110 04689", "Zbyszek 640426 06934", 'drawable/ic_herb.png'),
+
+        Cyf("T-Mobile",
+            "Jola  698385284 ", "Zbyszek 604733938  882061921", 'drawable/ic_era.png'),
+
     ]
 
 

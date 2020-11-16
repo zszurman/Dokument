@@ -1,6 +1,7 @@
 from tkinter import *
 from doc import Doc
 from lista import make_list_dok
+from lista import make_list_cyf
 from lista import make_list_bday
 from lista import make_map
 from bday import Bday
@@ -10,7 +11,7 @@ class Application:
 
     def __init__(self):
         self.root = Tk()
-        self.root.geometry("1000x1000")
+        self.root.geometry("1300x1000")
         self.root.title("Moje dokumenty")
         self.root.config(padx=5, pady=5, bg="#000033")
         self.make_window()
@@ -22,6 +23,8 @@ class Application:
             .grid(row=0, column=3, sticky=W)
         Label(text="Urodziny i Rocznice", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
             .grid(row=0, column=1, sticky=W)
+        Label(text="Cyferki", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
+            .grid(row=0, column=5, sticky=W)
 
         dok = make_list_dok()
         dok.sort(key=Doc.sort_time)
@@ -54,9 +57,22 @@ class Application:
                 .grid(row=i + 1, column=1, sticky=W)
             i += 1
 
+        cyf = make_list_cyf()
+
+        i = 0
+        while i < len(cyf):
+            photo = PhotoImage(file=cyf[i].icon)
+            w = Label(image=photo)
+            w.photo = photo
+            w.grid(row=i + 1, column=4)
+            Label(text=cyf[i].name, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40, pady=5) \
+                .grid(row=i + 1, column=5, sticky=W)
+            i += 1
+
         menubar = Menu(self.root)
 
         rod_menu = Menu(menubar, tearoff=0)
+
         rod_menu.add_command(label="Najbliższe wydarzenia", command=self.near_r)
         rod_menu.add_command(label="Najdalsze wydarzenia", command=self.far_r)
         rod_menu.add_separator()
@@ -68,6 +84,8 @@ class Application:
         menubar.add_cascade(label="Urodziny i Rocznice", menu=rod_menu)
 
         dok_menu = Menu(menubar, tearoff=0)
+        dok_menu.add_command(label="Cyferki", command=self.cyferki)
+        dok_menu.add_separator()
         dok_menu.add_command(label="Najbliższe", command=self.near_d)
         dok_menu.add_command(label="Najdalsze", command=self.far_d)
         dok_menu.add_separator()
@@ -91,12 +109,7 @@ class Application:
         map_menu.add_command(label="Europa", command=self.map_eu)
         menubar.add_cascade(label="Wyświetl mapy", menu=map_menu)
 
-        x_menu = Menu(menubar, tearoff=0)
-        x_menu.add_command(label="Najbliższe wydarzenia", command=self.near_r)
-        x_menu.add_command(label="Najdalsze wydarzenia", command=self.far_r)
-        x_menu.add_separator()
-        x_menu.add_command(label="Zakończ", command=self.root.destroy)
-        menubar.add_cascade(label="Zakończ", menu=x_menu)
+        menubar.add_cascade(label="Zakończ", command=self.root.destroy)
 
     @staticmethod
     def near_r():
@@ -219,6 +232,28 @@ class Application:
         while i < len(rodzinka):
             t.insert(END, str(rodzinka[i]) + "\n")
             i += 1
+        t.pack(side=TOP, fill=X)
+        t.configure(state='disabled')
+        v.config(command=t.yview)
+        kot.mainloop()
+
+    @staticmethod
+    def cyferki():
+        kot = Tk()
+        kot.geometry("700x800")
+        kot.title("Cyferki")
+        kot.config(padx=5, pady=5)
+        v = Scrollbar(kot)
+        v.pack(side=RIGHT, fill=Y)
+        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#FFFFCC", fg="#000066",
+                 font=("Calibri", 14), padx=20, pady=5)
+        cyf = make_list_cyf()
+
+        i = 0
+        while i < len(cyf):
+            t.insert(END, str(cyf[i]) + "\n")
+            i += 1
+
         t.pack(side=TOP, fill=X)
         t.configure(state='disabled')
         v.config(command=t.yview)
