@@ -23,10 +23,6 @@ def make_list_dok():
         Doc("Ferbi Szczepienie", "5.11.2021",
             "Zwierzakowo Lek. Wet. Beata Mazur", "tel. +48 607 476 314"),
 
-        Doc("GSU", "31.12.2100",
-            "Karta rabatowa  102 107 202 254, nr klienta  1153087\nSzekzby12@",
-            "Po 71.50 zł.do 10 dnia poprzedzającego m-ca "),
-
         Doc("Internet Luksus", "1.01.2021",
             "65 zł./m-c, ID 137, PIN 561280", "sxr6h2dt"),
 
@@ -97,7 +93,7 @@ def make_list_cyf():
 
         Cyf("WP",
             "zszurman@wp.pl  Szekzby12  Szekzby12@  ",
-            "WP pilot, Ipla, Spotify, Tauron, Allegro, Booking, Polar, FB, Cubase, Vitay", 'drawable/ic_wp.png'),
+            "WP pilot, Ipla, Spotify, Tauron, Allegro, Booking, Polar\nFB, Cubase, Vitay", 'drawable/ic_wp.png'),
 
         Cyf("GMAIL",
             "zszurman@gmail.com  Szekzby12", "Sygic", 'drawable/ic_gmail.png'),

@@ -58,15 +58,49 @@ class Application:
             i += 1
 
         cyf = make_list_cyf()
-
         i = 0
         while i < len(cyf):
             photo = PhotoImage(file=cyf[i].icon)
             w = Label(image=photo)
             w.photo = photo
             w.grid(row=i + 1, column=4)
-            Label(text=cyf[i].name, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40, pady=5) \
-                .grid(row=i + 1, column=5, sticky=W)
+
+            com = self.but0
+            if i == 0:
+                com = self.but0
+            if i == 1:
+                com = self.but1
+            if i == 2:
+                com = self.but2
+            if i == 3:
+                com = self.but3
+            if i == 4:
+                com = self.but4
+            if i == 5:
+                com = self.but5
+            if i == 6:
+                com = self.but6
+            if i == 7:
+                com = self.but7
+            if i == 8:
+                com = self.but8
+            if i == 9:
+                com = self.but9
+            if i == 10:
+                com = self.but10
+            if i == 11:
+                com = self.but11
+            if i == 12:
+                com = self.but12
+            if i == 13:
+                com = self.but13
+            if i == 14:
+                com = self.but14
+            if i == 15:
+                com = self.but15
+
+            Button(text=cyf[i].name, bg="#000033", fg="#F0FF62", width=20, font=("Calibri", 12), padx=40, pady=5,
+                   command=com).grid(row=i + 1, column=5, sticky=W)
             i += 1
 
         menubar = Menu(self.root)
@@ -84,8 +118,6 @@ class Application:
         menubar.add_cascade(label="Urodziny i Rocznice", menu=rod_menu)
 
         dok_menu = Menu(menubar, tearoff=0)
-        dok_menu.add_command(label="Cyferki", command=self.cyferki)
-        dok_menu.add_separator()
         dok_menu.add_command(label="Najbliższe", command=self.near_d)
         dok_menu.add_command(label="Najdalsze", command=self.far_d)
         dok_menu.add_separator()
@@ -112,244 +144,117 @@ class Application:
         menubar.add_cascade(label="Zakończ", command=self.root.destroy)
 
     @staticmethod
-    def near_r():
-        kot = Tk()
-        kot.geometry("400x500")
-        kot.title("Najbliższe urodziny i rocznice")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#FFFFCC", fg="#000066",
-                 font=("Calibri", 11), padx=20, pady=5)
-        rodzinka = make_list_bday()
-        rodzinka.sort(key=Bday.sort_time)
-        i = 0
-        while i < len(rodzinka):
-            t.insert(END, str(rodzinka[i]) + "\n")
-            i += 1
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
-
-    @staticmethod
-    def far_r():
-        kot = Tk()
-        kot.geometry("400x500")
-        kot.title("Najdalsze urodziny i rocznice")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#E5FFCC", fg="#000066",
-                 font=("Calibri", 10), padx=20, pady=5)
-        rodzinka = make_list_bday()
-        rodzinka.sort(key=Bday.sort_time, reverse=True)
-        i = 0
-        while i < len(rodzinka):
-            t.insert(END, str(rodzinka[i]) + "\n")
-            i += 1
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
-
-    @staticmethod
-    def young_r():
-        kot = Tk()
-        kot.geometry("400x500")
-        kot.title("Najmłodsi i najmłodsze rocznice")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#F2DBF6", fg="#000066",
-                 font=("Calibri", 11), padx=20, pady=5)
-        rodzinka = make_list_bday()
-        rodzinka.sort(key=Bday.sort_old, reverse=True)
-        i = 0
-        while i < len(rodzinka):
-            t.insert(END, str(rodzinka[i]) + "\n")
-            i += 1
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
-
-    @staticmethod
-    def old_r():
-        kot = Tk()
-        kot.geometry("400x500")
-        kot.title("Najstarsi i najstarsze rocznice")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#E0E0E0", fg="#000066",
-                 font=("Calibri", 11), padx=20, pady=5)
-        rodzinka = make_list_bday()
-        rodzinka.sort(key=Bday.sort_old)
-        i = 0
-        while i < len(rodzinka):
-            t.insert(END, str(rodzinka[i]) + "\n")
-            i += 1
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
-
-    @staticmethod
-    def alfa_r():
-        kot = Tk()
-        kot.geometry("400x500")
-        kot.title("Alfabetycznie +")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#CCFFFF", fg="#000066",
-                 font=("Calibri", 11), padx=20, pady=5)
-        rodzinka = make_list_bday()
-        rodzinka.sort(key=Bday.sort_surname)
-        i = 0
-        while i < len(rodzinka):
-            t.insert(END, str(rodzinka[i]) + "\n")
-            i += 1
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
-
-    @staticmethod
-    def omega_r():
-        kot = Tk()
-        kot.geometry("400x500")
-        kot.title("Alfabetycznie -")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#D6F2D9", fg="#000066",
-                 font=("Calibri", 11), padx=20, pady=5)
-        rodzinka = make_list_bday()
-        rodzinka.sort(key=Bday.sort_surname, reverse=True)
-        i = 0
-        while i < len(rodzinka):
-            t.insert(END, str(rodzinka[i]) + "\n")
-            i += 1
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
-
-    @staticmethod
-    def cyferki():
-        kot = Tk()
-        kot.geometry("700x800")
-        kot.title("Cyferki")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#FFFFCC", fg="#000066",
-                 font=("Calibri", 14), padx=20, pady=5)
+    def but(i):
         cyf = make_list_cyf()
-
-        i = 0
-        while i < len(cyf):
-            t.insert(END, str(cyf[i]) + "\n")
-            i += 1
-
+        root = Tk()
+        root.geometry("600x200")
+        root.title(cyf[i].name)
+        root.config(padx=5, pady=5)
+        t = Text(root, width=15, height=70, wrap=NONE, bg="#FFFFCC", fg="#000066",
+                 font=("Calibri", 14), padx=20, pady=5)
+        t.insert(END, str(cyf[i]) + "\n")
         t.pack(side=TOP, fill=X)
         t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
+        root.mainloop()
+
+    def but0(self):
+        self.but(0)
+
+    def but1(self):
+        self.but(1)
+
+    def but2(self):
+        self.but(2)
+
+    def but3(self):
+        self.but(3)
+
+    def but4(self):
+        self.but(4)
+
+    def but5(self):
+        self.but(5)
+
+    def but6(self):
+        self.but(6)
+
+    def but7(self):
+        self.but(7)
+
+    def but8(self):
+        self.but(8)
+
+    def but9(self):
+        self.but(9)
+
+    def but10(self):
+        self.but(10)
+
+    def but11(self):
+        self.but(11)
+
+    def but12(self):
+        self.but(12)
+
+    def but13(self):
+        self.but(13)
+
+    def but14(self):
+        self.but(14)
+
+    def but15(self):
+        self.but(15)
 
     @staticmethod
-    def near_d():
-        kot = Tk()
-        kot.geometry("600x700")
-        kot.title("Najbliższe")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
+    def option_list(title, make_list, sort_key, revers):
+        root = Tk()
+        root.geometry("400x500")
+        root.title(title)
+        root.config(padx=5, pady=5)
+        v = Scrollbar(root)
         v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#FFFFCC", fg="#000066",
-                 font=("Calibri", 12), padx=20, pady=5)
-        dok = make_list_dok()
-        dok.sort(key=Doc.sort_time)
-
+        t = Text(root, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#FFFFCC", fg="#000066",
+                 font=("Calibri", 11), padx=20, pady=5)
+        lista = make_list
+        lista.sort(key=sort_key, reverse=revers)
         i = 0
-        while i < len(dok):
-            t.insert(END, str(dok[i]) + "\n")
+        while i < len(lista):
+            t.insert(END, str(lista[i]) + "\n")
             i += 1
-
         t.pack(side=TOP, fill=X)
         t.configure(state='disabled')
         v.config(command=t.yview)
-        kot.mainloop()
+        root.mainloop()
 
-    @staticmethod
-    def far_d():
-        kot = Tk()
-        kot.geometry("600x700")
-        kot.title("Najdalsze")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#E5FFCC", fg="#000066",
-                 font=("Calibri", 12), padx=20, pady=5)
-        dok = make_list_dok()
-        dok.sort(key=Doc.sort_time, reverse=True)
+    def near_r(self):
+        self.option_list("Najbliższe urodziny i rocznice", make_list_bday(), Bday.sort_time, False)
 
-        i = 0
-        while i < len(dok):
-            t.insert(END, str(dok[i]) + "\n")
-            i += 1
+    def far_r(self):
+        self.option_list("Najdalsze urodziny i rocznice", make_list_bday(), Bday.sort_time, True)
 
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
+    def young_r(self):
+        self.option_list("Najmłodsi i najmłodsze rocznice", make_list_bday(), Bday.sort_old, True)
 
-    @staticmethod
-    def alfa_d():
-        kot = Tk()
-        kot.geometry("600x700")
-        kot.title("Alfabetycznie +")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#CCFFFF", fg="#000066",
-                 font=("Calibri", 12), padx=20, pady=5)
-        dok = make_list_dok()
-        dok.sort(key=Doc.sort_name)
+    def old_r(self):
+        self.option_list("Najstarsi i najstarsze rocznice", make_list_bday(), Bday.sort_old, False)
 
-        i = 0
-        while i < len(dok):
-            t.insert(END, str(dok[i]) + "\n")
-            i += 1
+    def alfa_r(self):
+        self.option_list("Alfabetycznie +", make_list_bday(), Bday.sort_surname, False)
 
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
+    def omega_r(self):
+        self.option_list("Alfabetycznie -", make_list_bday(), Bday.sort_surname, True)
 
-    @staticmethod
-    def omega_d():
-        kot = Tk()
-        kot.geometry("600x700")
-        kot.title("Alfabetycznie -")
-        kot.config(padx=5, pady=5)
-        v = Scrollbar(kot)
-        v.pack(side=RIGHT, fill=Y)
-        t = Text(kot, width=15, height=70, wrap=NONE, yscrollcommand=v.set, bg="#D6F2D9", fg="#000066",
-                 font=("Calibri", 12), padx=20, pady=5)
-        dok = make_list_dok()
-        dok.sort(key=Doc.sort_name, reverse=True)
+    def near_d(self):
+        self.option_list("Najbliższe", make_list_dok(), Doc.sort_time, False)
 
-        i = 0
-        while i < len(dok):
-            t.insert(END, str(dok[i]) + "\n")
-            i += 1
+    def far_d(self):
+        self.option_list("Najdalsze", make_list_dok(), Doc.sort_time, True)
 
-        t.pack(side=TOP, fill=X)
-        t.configure(state='disabled')
-        v.config(command=t.yview)
-        kot.mainloop()
+    def alfa_d(self):
+        self.option_list("Alfabetycznie +", make_list_dok(), Doc.sort_name, False)
+
+    def omega_d(self):
+        self.option_list("Alfabetycznie -", make_list_dok(), Doc.sort_name, True)
 
     @staticmethod
     def map_cz():
