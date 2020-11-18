@@ -1,10 +1,13 @@
 from tkinter import *
 from doc import Doc
+from cyf import Cyf
 from lista import make_list_dok
 from lista import make_list_cyf
 from lista import make_list_bday
 from lista import make_map
 from bday import Bday
+
+print("Cyferki by Zbigniew Szurman\nLoading... ")
 
 
 class Application:
@@ -19,15 +22,36 @@ class Application:
 
     def make_window(self):
 
-        Label(text="Dokumenty", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
-            .grid(row=0, column=3, sticky=W)
         Label(text="Urodziny i Rocznice", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
             .grid(row=0, column=1, sticky=W)
+        Label(text="Dokumenty", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
+            .grid(row=0, column=3, sticky=W)
         Label(text="Cyferki", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
             .grid(row=0, column=5, sticky=W)
 
+        rodz = make_list_bday()
+        rodz.sort(key=Bday.sort_time)
+        list_ur = [self.ur0, self.ur1, self.ur2, self.ur3, self.ur4, self.ur5, self.ur6, self.ur7, self.ur8,
+                   self.ur9, self.ur10, self.ur11, self.ur12, self.ur13, self.ur14, self.ur15, self.ur16, self.ur17,
+                   self.ur18, self.ur19, self.ur20, self.ur21, self.ur22, self.ur23, self.ur24, self.ur25,
+                   self.ur26, self.ur27, self.ur28, self.ur29, self.ur30, self.ur31
+                   ]
+        i = 0
+        while i < len(rodz):
+            photo = PhotoImage(file=rodz[i].im())
+            w = Label(image=photo)
+            w.photo = photo
+            w.grid(row=i + 1, column=0)
+            Button(text=rodz[i].short_str(), width=35, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40,
+                   pady=5, command=list_ur[i]).grid(row=i + 1, column=1, sticky=W)
+            i += 1
+
         dok = make_list_dok()
         dok.sort(key=Doc.sort_time)
+        list_dut = [self.dut0, self.dut1, self.dut2, self.dut3, self.dut4, self.dut5, self.dut6, self.dut7, self.dut8,
+                    self.dut9, self.dut10, self.dut11, self.dut12, self.dut13, self.dut14, self.dut15, self.dut16,
+                    self.dut17, self.dut18, self.dut19, self.dut20, self.dut21, self.dut22, self.dut23
+                    ]
         i = 0
         while i < len(dok):
             if dok[i].interval_int() < 0:
@@ -41,72 +65,27 @@ class Application:
             w = Label(image=photo)
             w.photo = photo
             w.grid(row=i + 1, column=2)
-            Label(text=dok[i].interval_short, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40, pady=5) \
-                .grid(row=i + 1, column=3, sticky=W)
-            i += 1
-
-        rodz = make_list_bday()
-        rodz.sort(key=Bday.sort_time)
-        i = 0
-        while i < len(rodz):
-            photo = PhotoImage(file=rodz[i].im())
-            w = Label(image=photo)
-            w.photo = photo
-            w.grid(row=i + 1, column=0)
-            Label(text=rodz[i].short_str(), bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40, pady=5) \
-                .grid(row=i + 1, column=1, sticky=W)
+            Button(text=dok[i].interval_short, width=35, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40,
+                   pady=5, command=list_dut[i]).grid(row=i + 1, column=3, sticky=W)
             i += 1
 
         cyf = make_list_cyf()
+        cyf.sort(key=Cyf.sort_name)
+        list_but = [self.but0, self.but1, self.but2, self.but3, self.but4, self.but5, self.but6, self.but7, self.but8,
+                    self.but9, self.but10, self.but11, self.but12, self.but13, self.but14, self.but15]
         i = 0
         while i < len(cyf):
             photo = PhotoImage(file=cyf[i].icon)
             w = Label(image=photo)
             w.photo = photo
             w.grid(row=i + 1, column=4)
-
-            com = self.but0
-            if i == 0:
-                com = self.but0
-            if i == 1:
-                com = self.but1
-            if i == 2:
-                com = self.but2
-            if i == 3:
-                com = self.but3
-            if i == 4:
-                com = self.but4
-            if i == 5:
-                com = self.but5
-            if i == 6:
-                com = self.but6
-            if i == 7:
-                com = self.but7
-            if i == 8:
-                com = self.but8
-            if i == 9:
-                com = self.but9
-            if i == 10:
-                com = self.but10
-            if i == 11:
-                com = self.but11
-            if i == 12:
-                com = self.but12
-            if i == 13:
-                com = self.but13
-            if i == 14:
-                com = self.but14
-            if i == 15:
-                com = self.but15
-
             Button(text=cyf[i].name, bg="#000033", fg="#F0FF62", width=20, font=("Calibri", 12), padx=40, pady=5,
-                   command=com).grid(row=i + 1, column=5, sticky=W)
+                   command=list_but[i]).grid(row=i + 1, column=5, sticky=W)
             i += 1
 
         menubar = Menu(self.root)
 
         rod_menu = Menu(menubar, tearoff=0)
-
         rod_menu.add_command(label="Najbliższe wydarzenia", command=self.near_r)
         rod_menu.add_command(label="Najdalsze wydarzenia", command=self.far_r)
         rod_menu.add_separator()
@@ -144,8 +123,9 @@ class Application:
         menubar.add_cascade(label="Zakończ", command=self.root.destroy)
 
     @staticmethod
-    def but(i):
-        cyf = make_list_cyf()
+    def butt(i, make_list, sortuj):
+        cyf = make_list
+        cyf.sort(key=sortuj)
         root = Tk()
         root.geometry("600x200")
         root.title(cyf[i].name)
@@ -157,53 +137,221 @@ class Application:
         t.configure(state='disabled')
         root.mainloop()
 
+    def ur0(self):
+        self.butt(0, make_list_bday(), Bday.sort_time)
+
+    def ur1(self):
+        self.butt(1, make_list_bday(), Bday.sort_time)
+
+    def ur2(self):
+        self.butt(2, make_list_bday(), Bday.sort_time)
+
+    def ur3(self):
+        self.butt(3, make_list_bday(), Bday.sort_time)
+
+    def ur4(self):
+        self.butt(4, make_list_bday(), Bday.sort_time)
+
+    def ur5(self):
+        self.butt(5, make_list_bday(), Bday.sort_time)
+
+    def ur6(self):
+        self.butt(6, make_list_bday(), Bday.sort_time)
+
+    def ur7(self):
+        self.butt(7, make_list_bday(), Bday.sort_time)
+
+    def ur8(self):
+        self.butt(8, make_list_bday(), Bday.sort_time)
+
+    def ur9(self):
+        self.butt(9, make_list_bday(), Bday.sort_time)
+
+    def ur10(self):
+        self.butt(10, make_list_bday(), Bday.sort_time)
+
+    def ur11(self):
+        self.butt(11, make_list_bday(), Bday.sort_time)
+
+    def ur12(self):
+        self.butt(12, make_list_bday(), Bday.sort_time)
+
+    def ur13(self):
+        self.butt(13, make_list_bday(), Bday.sort_time)
+
+    def ur14(self):
+        self.butt(14, make_list_bday(), Bday.sort_time)
+
+    def ur15(self):
+        self.butt(15, make_list_bday(), Bday.sort_time)
+
+    def ur16(self):
+        self.butt(16, make_list_bday(), Bday.sort_time)
+
+    def ur17(self):
+        self.butt(17, make_list_bday(), Bday.sort_time)
+
+    def ur18(self):
+        self.butt(18, make_list_bday(), Bday.sort_time)
+
+    def ur19(self):
+        self.butt(19, make_list_bday(), Bday.sort_time)
+
+    def ur20(self):
+        self.butt(20, make_list_bday(), Bday.sort_time)
+
+    def ur21(self):
+        self.butt(21, make_list_bday(), Bday.sort_time)
+
+    def ur22(self):
+        self.butt(22, make_list_bday(), Bday.sort_time)
+
+    def ur23(self):
+        self.butt(23, make_list_bday(), Bday.sort_time)
+
+    def ur24(self):
+        self.butt(24, make_list_bday(), Bday.sort_time)
+
+    def ur25(self):
+        self.butt(25, make_list_bday(), Bday.sort_time)
+
+    def ur26(self):
+        self.butt(26, make_list_bday(), Bday.sort_time)
+
+    def ur27(self):
+        self.butt(27, make_list_bday(), Bday.sort_time)
+
+    def ur28(self):
+        self.butt(28, make_list_bday(), Bday.sort_time)
+
+    def ur29(self):
+        self.butt(29, make_list_bday(), Bday.sort_time)
+
+    def ur30(self):
+        self.butt(30, make_list_bday(), Bday.sort_time)
+
+    def ur31(self):
+        self.butt(31, make_list_bday(), Bday.sort_time)
+
+    def dut0(self):
+        self.butt(0, make_list_dok(), Doc.sort_time)
+
+    def dut1(self):
+        self.butt(1, make_list_dok(), Doc.sort_time)
+
+    def dut2(self):
+        self.butt(2, make_list_dok(), Doc.sort_time)
+
+    def dut3(self):
+        self.butt(3, make_list_dok(), Doc.sort_time)
+
+    def dut4(self):
+        self.butt(4, make_list_dok(), Doc.sort_time)
+
+    def dut5(self):
+        self.butt(5, make_list_dok(), Doc.sort_time)
+
+    def dut6(self):
+        self.butt(6, make_list_dok(), Doc.sort_time)
+
+    def dut7(self):
+        self.butt(7, make_list_dok(), Doc.sort_time)
+
+    def dut8(self):
+        self.butt(8, make_list_dok(), Doc.sort_time)
+
+    def dut9(self):
+        self.butt(9, make_list_dok(), Doc.sort_time)
+
+    def dut10(self):
+        self.butt(10, make_list_dok(), Doc.sort_time)
+
+    def dut11(self):
+        self.butt(11, make_list_dok(), Doc.sort_time)
+
+    def dut12(self):
+        self.butt(12, make_list_dok(), Doc.sort_time)
+
+    def dut13(self):
+        self.butt(13, make_list_dok(), Doc.sort_time)
+
+    def dut14(self):
+        self.butt(14, make_list_dok(), Doc.sort_time)
+
+    def dut15(self):
+        self.butt(15, make_list_dok(), Doc.sort_time)
+
+    def dut16(self):
+        self.butt(16, make_list_dok(), Doc.sort_time)
+
+    def dut17(self):
+        self.butt(17, make_list_dok(), Doc.sort_time)
+
+    def dut18(self):
+        self.butt(18, make_list_dok(), Doc.sort_time)
+
+    def dut19(self):
+        self.butt(19, make_list_dok(), Doc.sort_time)
+
+    def dut20(self):
+        self.butt(20, make_list_dok(), Doc.sort_time)
+
+    def dut21(self):
+        self.butt(21, make_list_dok(), Doc.sort_time)
+
+    def dut22(self):
+        self.butt(22, make_list_dok(), Doc.sort_time)
+
+    def dut23(self):
+        self.butt(23, make_list_dok(), Doc.sort_time)
+
     def but0(self):
-        self.but(0)
+        self.butt(0, make_list_cyf(), Cyf.sort_name)
 
     def but1(self):
-        self.but(1)
+        self.butt(1, make_list_cyf(), Cyf.sort_name)
 
     def but2(self):
-        self.but(2)
+        self.butt(2, make_list_cyf(), Cyf.sort_name)
 
     def but3(self):
-        self.but(3)
+        self.butt(3, make_list_cyf(), Cyf.sort_name)
 
     def but4(self):
-        self.but(4)
+        self.butt(4, make_list_cyf(), Cyf.sort_name)
 
     def but5(self):
-        self.but(5)
+        self.butt(5, make_list_cyf(), Cyf.sort_name)
 
     def but6(self):
-        self.but(6)
+        self.butt(6, make_list_cyf(), Cyf.sort_name)
 
     def but7(self):
-        self.but(7)
+        self.butt(7, make_list_cyf(), Cyf.sort_name)
 
     def but8(self):
-        self.but(8)
+        self.butt(8, make_list_cyf(), Cyf.sort_name)
 
     def but9(self):
-        self.but(9)
+        self.butt(9, make_list_cyf(), Cyf.sort_name)
 
     def but10(self):
-        self.but(10)
+        self.butt(10, make_list_cyf(), Cyf.sort_name)
 
     def but11(self):
-        self.but(11)
+        self.butt(11, make_list_cyf(), Cyf.sort_name)
 
     def but12(self):
-        self.but(12)
+        self.butt(12, make_list_cyf(), Cyf.sort_name)
 
     def but13(self):
-        self.but(13)
+        self.butt(13, make_list_cyf(), Cyf.sort_name)
 
     def but14(self):
-        self.but(14)
+        self.butt(14, make_list_cyf(), Cyf.sort_name)
 
     def but15(self):
-        self.but(15)
+        self.butt(15, make_list_cyf(), Cyf.sort_name)
 
     @staticmethod
     def option_list(title, make_list, sort_key, revers):

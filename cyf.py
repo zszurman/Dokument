@@ -8,3 +8,6 @@ class Cyf:
     def __str__(self):
         return str(self.name) + "\n" + str(self.info1) + "\n" + str(self.info2) + "\n"
 
+    def sort_name(self):
+        return str(self.name)
+
