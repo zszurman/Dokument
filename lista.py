@@ -1,17 +1,20 @@
 from doc import Doc
 from cyf import Cyf
 from bday import Bday
+from kosz import Kosz
 import folium
 import webbrowser
+
+print("Cyferki by Zbigniew Szurman\nLoading... ")
 
 
 def make_list_dok():
     return [
         Doc("Dowód Osobisty Zbyszek", "30.05.2027",
-            "Wydany 30.05.2017 przez Wójta Gminy Gorzyce", "Seria CEU 826 321, PESEL 640426 06934"),
+            "Wydany 30.05.2017 przez Wójta Gminy Gorzyce", "Seria CEU 826 321\nPESEL 640426 06934"),
 
         Doc("Dowód Osobisty Jola", "28.01.2026",
-            "Wydany 28.01.2016 przez Wójta Gminy Gorzyce", "Seria CBU 037 122, PESEL 641110 04689"),
+            "Wydany 28.01.2016 przez Wójta Gminy Gorzyce", "Seria CBU 037 122\nPESEL 641110 04689"),
 
         Doc("EKUZ Zbyszek", "1.03.2022",
             "Nr identyfikacyjny karty: 8061 6000 1200 2149 7568 ",
@@ -24,7 +27,7 @@ def make_list_dok():
             "Zwierzakowo Lek. Wet. Beata Mazur", "tel. +48 607 476 314"),
 
         Doc("Internet Luksus", "1.01.2021",
-            "65 zł./m-c, ID 137, PIN 561280", "sxr6h2dt"),
+            "65 zł./m-c\nID 137\nPIN 561280", "sxr6h2dt"),
 
         Doc("Dom PZU", "30.12.2020",
             "Nr karty rabatowej 102 107 202 254", "466 zł./rok"),
@@ -48,7 +51,7 @@ def make_list_dok():
             "Tel. +48 698 385 284 ", "T-Mobile"),
 
         Doc("Komórka Zbyszek", "30.09.2021",
-            "Tel. +48 604 733 938", "PIN1 5855, PIN2 7419, PUK1 14908437, PUK2 65294624"),
+            "Tel. +48 604 733 938", "PIN1 5855\nPIN2 7419\nPUK1 14908437\nPUK2 65294624"),
 
         Doc("Komórka Tosia", "30.06.2021",
             "Tel. +48 724 104 003, 42 doładowania po 30 zł.", "Plus"),
@@ -58,7 +61,7 @@ def make_list_dok():
 
         Doc("Router", "16.04.2022",
             "Tel. 882 061 921, login admin, hasło admin",
-            "hasło do routera 2l5p35p3, PIN1 9906, PIN2 7397\nPUK1 7623525, PUK2 10433410"),
+            "hasło do routera 2l5p35p3\nPIN1 9906\nPIN2 7397\nPUK1 7623525\nPUK2 10433410"),
 
         Doc("Karta Kredytowa PKO Zbyszek", "31.01.2024",
             "Karta VISA", "karta kredytowa"),
@@ -80,16 +83,19 @@ def make_list_dok():
 
         Doc("Mama Komórka", "6.04.2022",
             "tel. +48 692 394 293, 24 doładowania po 50 zł. do 16 dnia m-ca",
-            "PIN 9885, agnieszkaszurman71@gmail.com, Szekzby12"),
+            "PIN 9885\nagnieszkaszurman71@gmail.com\n'Szekzby12"),
     ]
+
+
+print("Liczba dok = " + str(len(make_list_dok())))
 
 
 def make_list_cyf():
     return [
 
         Cyf("GSU",
-            "Karta rabatowa  102 107 202 254, nr klienta  1153087\nSzekzby12@",
-            "Po 71.50 zł.do 10 dnia poprzedzającego m-ca ", 'drawable/ic_gsu.png'),
+            "Karta rabatowa  102 107 202 254\nNr klienta  1153087\nSzekzby12@",
+            "Hasło tel. 48911654\nPo 71.50 zł.do 10 dnia poprzedzającego m-ca ", 'drawable/ic_gsu.png'),
 
         Cyf("WP",
             "zszurman@wp.pl  Szekzby12  Szekzby12@  ",
@@ -98,13 +104,13 @@ def make_list_cyf():
         Cyf("GMAIL",
             "zszurman@gmail.com  Szekzby12", "Sygic", 'drawable/ic_gmail.png'),
 
-        Cyf("Legitymacja Emeryta - Rencisty",
+        Cyf("Legitymacja Emeryta",
             "Nr 34/12/E/004006/16\nRybnik 25.07.2016 ZUS Oddział w Rybniku", "Nr świadczenia KGE/25/07/182682",
             'drawable/ic_zus.png'),
 
         Cyf("PKO",
-            "32000079   50724921  (18 1020 2472 0000 6902 0107 7205)",
-            "SamwBarze12  Mojastopa64  2975  3390  Szekzby12  Szekzby12@", 'drawable/ic_pko.png'),
+            "32000079   SamwBarze12\n50724921    Mojastopa64",
+            "2975  3390\nSzekzby12  Szekzby12@\n18 1020 2472 0000 6902 0107 7205", 'drawable/ic_pko.png'),
 
         Cyf("PZU",
             "Szekzby12@", "mojepzu.pl", 'drawable/ic_pzu.png'),
@@ -126,21 +132,22 @@ def make_list_cyf():
             "rata obejmuje 3 m-ce (m-c wpłaty + 2 następne)\nsuma ubezpieczenia 6 100 zł.", 'drawable/ic_pzu.png'),
 
         Cyf("Mama Dane",
-            "PESEL 360402 11841", "Karta 9563", 'drawable/ic_agn.png'),
+            "PESEL 360402 11841", "Karta 9563\nTel. 692 394 293\nPIN 9885  ", 'drawable/ic_agn.png'),
 
-        Cyf("Cubase AI 10.5",
-            "Activation Code", "0240 7COA OZAG KJRS CNPO XK00 F142 8B32", 'drawable/ic_cub.png'),
-
-        Cyf("Cubase AI 8.0",
-            "Activation Code", "0240 7CDA RPFO TVSM VBLD XR00 14D4 8C45", 'drawable/ic_cub.png'),
+        Cyf("Cubase AI",
+            "Cubase AI 8.0 activation Code\n0240 7CDA RPFO TVSM VBLD XR00 14D4 8C45\n",
+            "Cubase AI 10.5 activation Code\n0240 7COA OZAG KJRS CNPO XK00 F142 8B32", 'drawable/ic_cub.png'),
 
         Cyf("PESEL",
-            "Jola  641110 04689", "Zbyszek 640426 06934", 'drawable/ic_herb.png'),
+            "Jola  641110 04689", "Zbyszek  640426 06934\nMama  360402 11841 ", 'drawable/ic_herb.png'),
 
         Cyf("T-Mobile",
-            "Jola  698385284 ", "Zbyszek 604733938  882061921", 'drawable/ic_era.png'),
+            "Jola  698385284 ", "Zbyszek  604733938  882061921\nMama  692394293  ", 'drawable/ic_era.png'),
 
     ]
+
+
+print("Liczba cyf = " + str(len(make_list_cyf())))
 
 
 def make_list_bday():
@@ -242,6 +249,35 @@ def make_list_bday():
         Bday("Adam", "Copiak", 1956, 11, 8, "+48 692 982 930", "29-100 Dąbie, Dąbie 48A", "", "u",
              "drawable/ic_aco.png")
     ]
+
+
+print("Liczba bday = " + str(len(make_list_bday())))
+
+
+def make_list_kosz():
+    return [
+        Kosz("Kubeł", ["9.11.2020", "7.12.2020"],
+             "Opłata za śmieci\nmiesięcznie 3 osoby x 28.50 zł. = 85.50zł.\nkwartalnie 256.50 zł.\n"
+             "do 31.III, 30.VI, 30.IX, 15.XII\nmożna płacić miesięcznie",
+             'drawable/ic_kubel.png'),
+        Kosz("Worki", ["18.11.2020", "9.12.2020"],
+             "Maks. ilość worków brązowych\nod IV do XI po 5 worków bioodpadów\nod XII do III po 1 worku bioodpadów",
+             'drawable/ic_worki.png'),
+        Kosz("Popiół", ["23.11.2020", "21.12.2020"],
+             "PSZOK\nwtorek 8.00 - 14.30\nczwartek 8.00 - 14.30 (X - IV)\nczwartek 12.00 - 16.30 (V - IX)\n"
+             "sobota 8.00 - 13.30\nodpady remontowo - budowlane tylko w soboty\npokazać dowód wpłaty\n"
+             "tel. 32 451 30 56 (w.21)",
+             'drawable/ic_popiol.png'),
+        Kosz("Gabaryty", ["15.05.2020", "14.05.2021"], "", 'drawable/ic_gabaryt.png'),
+        Kosz("Emerytura", ["25.11.2020", "23.12.2020"],
+             "5 027.59 zł.\nSwiadczenie ZUS\n340000E 201025 00 KGE07182682",
+             'drawable/ic_kasa.png'),
+        Kosz("Prąd", ["5.11.2020", "5.12.2020"], "około 5 dnia miesiąca podać stan liczników", 'drawable/ic_prad.png'),
+        Kosz("Spotkanie Barbórkowe", ["5.12.2020", "4.12.2021"], "", 'drawable/ic_czako.png')
+    ]
+
+
+print("Liczba kosz = " + str(len(make_list_kosz())))
 
 
 def make_map(lat, lon, zoom):

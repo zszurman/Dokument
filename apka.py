@@ -1,20 +1,12 @@
 from tkinter import *
-from doc import Doc
-from cyf import Cyf
-from lista import make_list_dok
-from lista import make_list_cyf
-from lista import make_list_bday
-from lista import make_map
-from bday import Bday
-
-print("Cyferki by Zbigniew Szurman\nLoading... ")
+from lista import *
 
 
 class Application:
 
     def __init__(self):
         self.root = Tk()
-        self.root.geometry("1300x1000")
+        self.root.geometry("1600x1000")
         self.root.title("Moje dokumenty")
         self.root.config(padx=5, pady=5, bg="#000033")
         self.make_window()
@@ -28,6 +20,8 @@ class Application:
             .grid(row=0, column=3, sticky=W)
         Label(text="Cyferki", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
             .grid(row=0, column=5, sticky=W)
+        Label(text="Kalendarz", bg="#000033", fg="#F0FF62", font=("Calibri", 16), padx=40, pady=5) \
+            .grid(row=0, column=7, sticky=W)
 
         rodz = make_list_bday()
         rodz.sort(key=Bday.sort_time)
@@ -42,7 +36,7 @@ class Application:
             w = Label(image=photo)
             w.photo = photo
             w.grid(row=i + 1, column=0)
-            Button(text=rodz[i].short_str(), width=35, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40,
+            Button(text=rodz[i].short_str(), width=25, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40,
                    pady=5, command=list_ur[i]).grid(row=i + 1, column=1, sticky=W)
             i += 1
 
@@ -65,22 +59,35 @@ class Application:
             w = Label(image=photo)
             w.photo = photo
             w.grid(row=i + 1, column=2)
-            Button(text=dok[i].interval_short, width=35, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40,
+            Button(text=dok[i].interval_short, width=30, bg="#000033", fg="#F0FF62", font=("Calibri", 12), padx=40,
                    pady=5, command=list_dut[i]).grid(row=i + 1, column=3, sticky=W)
             i += 1
 
         cyf = make_list_cyf()
         cyf.sort(key=Cyf.sort_name)
         list_but = [self.but0, self.but1, self.but2, self.but3, self.but4, self.but5, self.but6, self.but7, self.but8,
-                    self.but9, self.but10, self.but11, self.but12, self.but13, self.but14, self.but15]
+                    self.but9, self.but10, self.but11, self.but12, self.but13, self.but14]
         i = 0
         while i < len(cyf):
             photo = PhotoImage(file=cyf[i].icon)
             w = Label(image=photo)
             w.photo = photo
             w.grid(row=i + 1, column=4)
-            Button(text=cyf[i].name, bg="#000033", fg="#F0FF62", width=20, font=("Calibri", 12), padx=40, pady=5,
+            Button(text=cyf[i].name, bg="#000033", fg="#F0FF62", width=10, font=("Calibri", 12), padx=40, pady=5,
                    command=list_but[i]).grid(row=i + 1, column=5, sticky=W)
+            i += 1
+
+        kosz = make_list_kosz()
+        kosz.sort(key=Kosz.find_day)
+        list_kosz = [self.ko0, self.ko1, self.ko2, self.ko3, self.ko4, self.ko5, self.ko6]
+        i = 0
+        while i < len(kosz):
+            photo = PhotoImage(file=kosz[i].image)
+            w = Label(image=photo)
+            w.photo = photo
+            w.grid(row=i + 1, column=6)
+            Button(text=kosz[i].str1(), bg="#000033", fg="#F0FF62", width=35, font=("Calibri", 12), padx=40, pady=5,
+                   command=list_kosz[i]).grid(row=i + 1, column=7, sticky=W)
             i += 1
 
         menubar = Menu(self.root)
@@ -127,7 +134,7 @@ class Application:
         cyf = make_list
         cyf.sort(key=sortuj)
         root = Tk()
-        root.geometry("600x200")
+        root.geometry("600x250")
         root.title(cyf[i].name)
         root.config(padx=5, pady=5)
         t = Text(root, width=15, height=70, wrap=NONE, bg="#FFFFCC", fg="#000066",
@@ -350,8 +357,26 @@ class Application:
     def but14(self):
         self.butt(14, make_list_cyf(), Cyf.sort_name)
 
-    def but15(self):
-        self.butt(15, make_list_cyf(), Cyf.sort_name)
+    def ko0(self):
+        self.butt(0, make_list_kosz(), Kosz.find_day)
+
+    def ko1(self):
+        self.butt(1, make_list_kosz(), Kosz.find_day)
+
+    def ko2(self):
+        self.butt(2, make_list_kosz(), Kosz.find_day)
+
+    def ko3(self):
+        self.butt(3, make_list_kosz(), Kosz.find_day)
+
+    def ko4(self):
+        self.butt(4, make_list_kosz(), Kosz.find_day)
+
+    def ko5(self):
+        self.butt(5, make_list_kosz(), Kosz.find_day)
+
+    def ko6(self):
+        self.butt(6, make_list_kosz(), Kosz.find_day)
 
     @staticmethod
     def option_list(title, make_list, sort_key, revers):
