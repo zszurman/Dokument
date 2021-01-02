@@ -79,7 +79,7 @@ class Application:
 
         kosz = make_list_kosz()
         kosz.sort(key=Kosz.find_day)
-        list_kosz = [self.ko0, self.ko1, self.ko2, self.ko3, self.ko4, self.ko5, self.ko6]
+        list_kosz = [self.ko0, self.ko1, self.ko2, self.ko3, self.ko4, self.ko5, self.ko6, self.ko7, self.ko8, self.ko9]
         i = 0
         while i < len(kosz):
             photo = PhotoImage(file=kosz[i].image)
@@ -131,15 +131,15 @@ class Application:
 
     @staticmethod
     def butt(i, make_list, sortuj):
-        cyf = make_list
-        cyf.sort(key=sortuj)
+        L = make_list
+        L.sort(key=sortuj)
         root = Tk()
         root.geometry("600x250")
-        root.title(cyf[i].name)
+        root.title(L[i].name)
         root.config(padx=5, pady=5)
         t = Text(root, width=15, height=70, wrap=NONE, bg="#FFFFCC", fg="#000066",
                  font=("Calibri", 14), padx=20, pady=5)
-        t.insert(END, str(cyf[i]) + "\n")
+        t.insert(END, str(L[i]) + "\n")
         t.pack(side=TOP, fill=X)
         t.configure(state='disabled')
         root.mainloop()
@@ -377,6 +377,15 @@ class Application:
 
     def ko6(self):
         self.butt(6, make_list_kosz(), Kosz.find_day)
+
+    def ko7(self):
+        self.butt(7, make_list_kosz(), Kosz.find_day)
+
+    def ko8(self):
+        self.butt(8, make_list_kosz(), Kosz.find_day)
+
+    def ko9(self):
+        self.butt(9, make_list_kosz(), Kosz.find_day)
 
     @staticmethod
     def option_list(title, make_list, sort_key, revers):

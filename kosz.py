@@ -58,47 +58,61 @@ class Kosz:
             y = "błąd m-ca"
         return y
 
-    def find_index(self):
+    def clear_list(self):
         y2 = datetime.datetime.now()
         y1 = datetime.datetime(y2.year, y2.month, y2.day)
         y = y1.timestamp()
-        i = 0
-        my_index = 0
-        while i < len(self.daty):
-            x1 = datetime.datetime.strptime(self.daty[i], "%d.%m.%Y")
+        L = self.daty
+        for element in L:
+            x1 = datetime.datetime.strptime(element, "%d.%m.%Y")
             x = x1.timestamp()
-            dx = int((x - y) / (60 * 60 * 24))
-            if dx >= 0:
-                my_index = i
-                break
-            i += 1
-        return my_index
+            dx = x - y
+            if dx < 0:
+                L.remove(element)
+                self.clear_list()
+        return L
 
     def find_day(self):
+        L = self.clear_list()
         y2 = datetime.datetime.now()
         y1 = datetime.datetime(y2.year, y2.month, y2.day)
         y = y1.timestamp()
-        x1 = datetime.datetime.strptime(self.daty[self.find_index()], "%d.%m.%Y")
+        x1 = datetime.datetime.strptime(L[0], "%d.%m.%Y")
         x = x1.timestamp()
         return int((x - y) / (60 * 60 * 24))
 
     def find_date(self):
-        x = datetime.datetime.strptime(self.daty[self.find_index()], "%d.%m.%Y")
+        L = self.clear_list()
+        x = datetime.datetime.strptime(L[0], "%d.%m.%Y")
         mc = self.polish_month(x.month)
         day = str(x.day)
         week = self.polish_day(x.weekday())
-        return day + mc + "(" + week + ")"
+        return f"{day} {mc} ({week})"
 
     def str1(self):
-        dni = " dni "
+        dni = "dni"
         if self.find_day() == 1:
-            dni = " dzień "
+            dni = "dzień"
         if self.find_day() > 0:
-            return str(self.name) + " za " + str(self.find_day()) + dni + str(self.find_date())
+            return f"{self.name} za {self.find_day()} {dni} {self.find_date()}"
         elif self.find_day() == 0:
-            return str(self.name) + " dzisiaj " + str(self.find_date())
+            return f"{self.name} dzisiaj {self.find_date()}"
         else:
-            return str(self.name) + " w tym roku koniec"
+            return f"{self.name} w tym roku koniec"
+
+    def print_list(self):
+        L = self.clear_list()
+        i = 0
+        text = "Pozostałe dni:  "
+        while i < len(L):
+            if i == len(L) - 1:
+                text += f"{L[i]}\n"
+            elif i == 2 or i == 7 or i == 11:
+                text += f"{L[i]},\n"
+            else:
+                text += f"{L[i]},   "
+            i += 1
+        return text
 
     def __str__(self):
-        return self.info
+        return f"{self.print_list()}\n{self.info}"

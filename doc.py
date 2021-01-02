@@ -29,28 +29,28 @@ class Doc:
         dy = int(dx // 365.25)
         dd = int(dx % 365.25)
 
-        str1 = " dni "
+        str1 = "dni"
         if dd == 1:
-            str1 = " dzień "
+            str1 = "dzień"
 
-        str2 = " lat i "
+        str2 = "lat i"
         if dy == 1 or dy == -1:
             str2 = " rok i "
         if (2 <= dy % 10 <= 4) and (dy < 10 or dy > 20):
             str2 = " lata i "
         if dy == -2 or dy == -3 or dy == -4:
-            str2 = " lata i "
+            str2 = "lata i"
 
-        str3 = " (do " + self.date + ")"
+        str3 = "(do " + self.date + ")"
 
         if dy == 0:
-            return str(dx) + str1 + str3
+            return f"{dx} {str1} {str3}"
         elif dy > 30:
-            return ""
+            return f""
         elif dx < 0:
-            return "termin upłynął " + self.date
+            return f"termin upłynął {self.date}"
         else:
-            return str(dy) + str2 + str(dd) + str1 + str3
+            return f"{dy} {str2} {dd} {str1} {str3}"
 
     @property
     def interval_short(self):
@@ -65,26 +65,26 @@ class Doc:
         dy = int(dx // 365.25)
         dd = int(dx % 365.25)
 
-        str1 = " dni "
+        str1 = "dni"
         if dd == 1:
-            str1 = " dzień "
+            str1 = "dzień"
 
-        str2 = " lat i "
+        str2 = "lat i"
         if dy == 1 or dy == -1:
             str2 = " rok i "
         if (2 <= dy % 10 <= 4) and (dy < 10 or dy > 20):
             str2 = " lata i "
         if dy == -2 or dy == -3 or dy == -4:
-            str2 = " lata i "
+            str2 = "lata i"
 
         if dy == 0:
-            return "Za " + str(dx) + str1 + "  " + self.name
+            return f"Za {dx} {str1} {self.name}"
         elif dy > 30:
             return self.name
         elif dx < 0:
-            return "Termin upłynął  " + self.name
+            return f"Termin upłynął {self.name}"
         else:
-            return "Za " + str(dy) + str2 + str(dd) + str1 + "  " + self.name
+            return f"Za {dy} {str2} {dd} {str1} {self.name}"
 
     def sort_time(self):
         x = datetime.datetime.strptime(self.date, "%d.%m.%Y")
@@ -94,10 +94,7 @@ class Doc:
         return self.name
 
     def __str__(self):
-        return str(self.name) + "\n" \
-               + str(self.info1) + "\n" \
-               + str(self.info2) + "\n" \
-               + str(self.interval) + "\n"
+        return f"{self.name}\n{self.info1}\n{self.info2}\n{self.interval}\n"
 
     def short(self):
-        return str(self.name) + "     " + str(self.interval)
+        return f"{self.name}    {self.interval}"

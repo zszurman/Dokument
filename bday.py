@@ -15,7 +15,7 @@ class Bday:
         self.image = image
 
     def im(self):
-        return str(self.image)
+        return f"{self.image}"
 
     def sort_time(self):
         now = datetime.date.today()
@@ -42,7 +42,7 @@ class Bday:
         return datetime.date(self.r, self.m, self.d)
 
     def sort_surname(self):
-        return self.surname + " " + self.name + "\n"
+        return f"{self.surname} {self.name}\n"
 
     @staticmethod
     def polish_day(dt):
@@ -67,39 +67,38 @@ class Bday:
     @staticmethod
     def polish_month(mc):
         if mc == 1:
-            y = " styczeń "
+            y = " styczeń"
         elif mc == 2:
-            y = " luty "
+            y = " luty"
         elif mc == 3:
-            y = " marzec "
+            y = " marzec"
         elif mc == 4:
-            y = " kwiecień "
+            y = " kwiecień"
         elif mc == 5:
-            y = " maj "
+            y = " maj"
         elif mc == 6:
-            y = " czerwiec "
+            y = " czerwiec"
         elif mc == 7:
-            y = " lipiec "
+            y = " lipiec"
         elif mc == 8:
-            y = " sierpień "
+            y = " sierpień"
         elif mc == 9:
-            y = " wrzesień "
+            y = " wrzesień"
         elif mc == 10:
-            y = " październik "
+            y = " październik"
         elif mc == 11:
-            y = " listopad "
+            y = " listopad"
         elif mc == 12:
-            y = " grudzień "
+            y = " grudzień"
         else:
             y = "błąd m-ca"
         return y
 
     def introduce(self):
         if self.typ == "u":
-            return str(self.name) + " " + str(self.surname) + "\n" \
-                   + self.address + "\nTel.: " + self.tel + "\nEmail: " + self.mail + "\n"
+            return f"{self.name} {self.surname}\n{self.address}\nTel.: {self.tel}\nEmail: { self.mail}\n"
         else:
-            return str(self.name) + " " + str(self.surname) + "\n" + self.address + "\n"
+            return f"{self.name} {self.surname}\n{self.address}\n"
 
     def born_day(self):
         born = datetime.date(self.r, self.m, self.d)
@@ -108,8 +107,7 @@ class Bday:
         if self.typ == "r":
             tyt = "Data ślubu: "
 
-        return tyt + str(self.d) + str(self.polish_month(self.m)) + str(self.r) + " (" + self.polish_day(
-            week_day) + ")\n"
+        return f"{tyt} {self.d} {self.polish_month(self.m)} {self.r} {self.polish_day(week_day)}\n"
 
     def calculate_age(self):
         born = datetime.date(self.r, self.m, self.d)
@@ -123,10 +121,10 @@ class Bday:
         yd_syl_old = syl_old.timetuple().tm_yday
 
         w = "Wiek: "
-        y = "Dzisiaj kończy "
+        y = "urodziny"
         if self.typ == "r":
             w = "Po ślubie: "
-            y = "Dziś Rocznica Ślubu "
+            y = "rocznica ślubu"
 
         if yd_uro < yd_now:
             lat = now.year - born.year
@@ -138,18 +136,18 @@ class Bday:
             lat = now.year - born.year - 1
             dni = yd_syl_old - yd_uro_old + yd_now
 
-        str_lat = " lat i "
+        str_lat = "lat i"
         if lat == 1:
-            str_lat = " rok i "
+            str_lat = "rok i"
         elif (lat % 10 > 1) and (lat % 10 < 5) and (lat > 20 or lat < 10):
-            str_lat = " lata i "
+            str_lat = "lata i"
 
         if dni == 0:
-            return y + str(lat) + " rok\n"
+            return f"Dzisiaj {lat} {y}\n"
         elif dni == 1:
-            return w + str(lat) + str_lat + str(dni) + " dzień\n"
+            return f"{w} {lat} {str_lat} {dni} dzień\n"
         else:
-            return w + str(lat) + str_lat + str(dni) + " dni\n"
+            return f"{w} {lat} {str_lat} {dni} dni\n"
 
     def calculate_time(self):
         now = datetime.date.today()
@@ -183,21 +181,21 @@ class Bday:
             z = "Rocznica za "
 
         if dni == 0:
-            return rz + self.polish_day(week_day) + ")"
+            return f"{rz} ({self.polish_day(week_day)})"
         elif dni == 1:
-            return y + self.polish_day(week_day) + ")"
+            return f"{y} ({self.polish_day(week_day)})"
         else:
-            return z + str(dni) + " dni (" + self.polish_day(week_day) + ")"
+            return f"{z}{dni}  dni ({self.polish_day(week_day)})"
 
     def __str__(self):
-        return self.introduce() + self.born_day() + self.calculate_age() + self.calculate_time() + "\n"
+        return f"{self.introduce()}{self.born_day()}{self.calculate_age()}{self.calculate_time()}\n"
 
     def short_str(self):
         if self.sort_time() == 0:
-            return "     Dzisiaj   " + self.name + " " + self.surname
+            return f"Dzisiaj  {self.name} {self.surname}"
         elif self.sort_time() == 1:
-            return "     Jutro   " + self.name + " " + self.surname
+            return f"Jutro  {self.name} {self.surname}"
         elif self.sort_time() == 2:
-            return "     Pojutrze   " + self.name + " " + self.surname
+            return f"Pojutrze  {self.name} {self.surname}"
         else:
-            return "     Za " + str(self.sort_time()) + " dni   " + self.name + " " + self.surname
+            return f"Za  {self.sort_time()} dni {self.name} {self.surname}"

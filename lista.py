@@ -29,13 +29,13 @@ def make_list_dok():
         Doc("Internet Luksus", "1.01.2021",
             "65 zł./m-c\nID 137\nPIN 561280", "sxr6h2dt"),
 
-        Doc("Dom PZU", "30.12.2020",
+        Doc("Dom PZU", "30.12.2021",
             "Nr karty rabatowej 102 107 202 254", "466 zł./rok"),
 
-        Doc("Karta PKO MC Zbyszek", "31.01.2021",
+        Doc("Karta PKO MC Zbyszek", "31.01.2026",
             "Mastercard", "konto Aurum"),
 
-        Doc("Karta PKO VISA Jola", "31.01.2021",
+        Doc("Karta PKO VISA Jola", "31.01.2026",
             "Karta VISA", "konto Aurum"),
 
         Doc("Baleno Przegląd Gwarancyjny", "29.05.2021",
@@ -83,7 +83,7 @@ def make_list_dok():
 
         Doc("Mama Komórka", "6.04.2022",
             "tel. +48 692 394 293, 24 doładowania po 50 zł. do 16 dnia m-ca",
-            "PIN 9885\nagnieszkaszurman71@gmail.com\n'Szekzby12"),
+            "PIN 9885\nagnieszkaszurman71@gmail.com\nSzekzby12"),
     ]
 
 
@@ -256,24 +256,45 @@ print("Liczba bday = " + str(len(make_list_bday())))
 
 def make_list_kosz():
     return [
-        Kosz("Kubeł", ["9.11.2020", "7.12.2020"],
+        Kosz("Kubeł", ["11.01.2021", "8.02.2021", "8.03.2021", "2.04.2021", "19.04.2021", "30.04.2021", "17.05.2021",
+                       "31.05.2021", "14.06.2021", "28.06.2021", "12.07.2021", "26.07.2021", "9.08.2021", "23.08.2021",
+                       "6.09.2021", "20.09.2021", "4.10.2021", "18.10.2021", "8.11.2021", "22.11.2021",
+                       "6.12.2021"],
              "Opłata za śmieci\nmiesięcznie 3 osoby x 28.50 zł. = 85.50zł.\nkwartalnie 256.50 zł.\n"
              "do 31.III, 30.VI, 30.IX, 15.XII\nmożna płacić miesięcznie",
              'drawable/ic_kubel.png'),
-        Kosz("Worki", ["18.11.2020", "9.12.2020"],
-             "Maks. ilość worków brązowych\nod IV do XI po 5 worków bioodpadów\nod XII do III po 1 worku bioodpadów",
+        Kosz("Worki kolorowe", ["8.01.2021", "5.02.2021", "5.03.2021", "2.04.2021", "30.04.2021", "28.05.2021",
+                                "25.06.2021", "23.07.2021", "20.08.2021", "17.09.2021", "15.10.2021", "12.11.2021",
+                                "10.12.2021"],
+             "szkło, metal, tworzywa sztuczne\nopakowania wielomateriałowe",
              'drawable/ic_worki.png'),
-        Kosz("Popiół", ["23.11.2020", "21.12.2020"],
-             "PSZOK\nwtorek 8.00 - 14.30\nczwartek 8.00 - 14.30 (X - IV)\nczwartek 12.00 - 16.30 (V - IX)\n"
-             "sobota 8.00 - 13.30\nodpady remontowo - budowlane tylko w soboty\npokazać dowód wpłaty\n"
-             "tel. 32 451 30 56 (w.21)",
+        Kosz("Worki brązowe", ["8.01.2021", "5.02.2021", "5.03.2021", "2.04.2021", "16.04.2021", "30.04.2021",
+                               "14.05.2021", "28.05.2021", "11.06.2021", "25.06.2021", "9.07.2021",
+                               "23.07.2021", "6.08.2021", "20.08.2021", "3.09.2021", "17.09.2021", "1.10.2021",
+                               "15.10.2021", "29.10.2021", "12.11.2021", "26.11.2021", "10.12.2021"],
+             "Maks. ilość worków brązowych\nod IV do XI po 3 worki bioodpadów\nod XII do III po 1 worku bioodpadów",
+             'drawable/ic_bio.png'),
+        Kosz("Popiół", ["25.01.2021", "22.02.2021", "22.03.2021", "19.04.2021", "11.10.2021", "8.11.2021", "6.12.2021"],
+             "PSZOK dodatkowe śmieci\nrezerwować wizyty na aplikacji\nhttps://pszok.gorzyce.pl\n"
+             "odpady remontowo - budowlane tylko w soboty\ntel. 32 451 30 56 (w.21)",
              'drawable/ic_popiol.png'),
-        Kosz("Gabaryty", ["15.05.2020", "14.05.2021"], "", 'drawable/ic_gabaryt.png'),
-        Kosz("Emerytura", ["25.11.2020", "23.12.2020"],
+        Kosz("Gabaryty", ["28.05.2021"], "", 'drawable/ic_gabaryt.png'),
+        Kosz("Emerytura",
+             ["25.12.2020", "25.01.2021", "25.02.2021", "25.03.2021", "23.04.2021", "25.05.2021", "25.06.2021",
+              "23.07.2021", "25.08.2021", "24.09.2021", "25.10.2021", "25.11.2021", "23.12.2021"],
              "5 027.59 zł.\nSwiadczenie ZUS\n340000E 201025 00 KGE07182682",
              'drawable/ic_kasa.png'),
-        Kosz("Prąd", ["5.11.2020", "5.12.2020"], "około 5 dnia miesiąca podać stan liczników", 'drawable/ic_prad.png'),
-        Kosz("Spotkanie Barbórkowe", ["5.12.2020", "4.12.2021"], "", 'drawable/ic_czako.png')
+        Kosz("Prąd",
+             ["5.12.2020", "5.01.2021", "5.02.2021", "5.03.2021", "5.04.2021", "5.05.2021", "5.06.2021",
+              "5.07.2021", "5.08.2021", "5.09.2021", "5.10.2021", "5.11.2021", "5.12.2021"],
+             "około 5 dnia miesiąca podać stan liczników", 'drawable/ic_prad.png'),
+        Kosz("Spotkanie Barbórkowe", ["5.12.2020", "4.12.2021"], "", 'drawable/ic_czako.png'),
+        Kosz("Mama PZU Życie", ["28.2.2021", "31.05.2021", "31.8.2021", "30.11.2021"],
+             "129,45 zł. co 3 m-ce\nokres ubezpieczenia obejmuje m-c wpłaty i 2 następne", 'drawable/ic_pzu.png'),
+        Kosz("Mama komórka",
+             ["15.12.2020", "15.01.2021", "15.02.2021", "15.03.2021", "15.04.2021", "15.05.2021", "15.06.2021",
+              "15.07.2021", "15.08.2021", "15.09.2021", "15.10.2021", "15.11.2021", "15.12.2021"],
+             "doładowanie 50 zł.", 'drawable/ic_era.png')
     ]
 
 
