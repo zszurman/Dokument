@@ -135,6 +135,8 @@ class Bday:
         else:
             lat = now.year - born.year - 1
             dni = yd_syl_old - yd_uro_old + yd_now
+        if lat < 0:
+            lat = 0
 
         str_lat = "lat i"
         if lat == 1:

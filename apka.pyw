@@ -28,7 +28,7 @@ class Application:
         list_ur = [self.ur0, self.ur1, self.ur2, self.ur3, self.ur4, self.ur5, self.ur6, self.ur7, self.ur8,
                    self.ur9, self.ur10, self.ur11, self.ur12, self.ur13, self.ur14, self.ur15, self.ur16, self.ur17,
                    self.ur18, self.ur19, self.ur20, self.ur21, self.ur22, self.ur23, self.ur24, self.ur25,
-                   self.ur26, self.ur27, self.ur28, self.ur29, self.ur30, self.ur31
+                   self.ur26, self.ur27, self.ur28, self.ur29, self.ur30, self.ur31, self.ur32
                    ]
         i = 0
         while i < len(rodz):
@@ -239,6 +239,9 @@ class Application:
 
     def ur31(self):
         self.butt(31, make_list_bday(), Bday.sort_time)
+
+    def ur32(self):
+        self.butt(32, make_list_bday(), Bday.sort_time)
 
     def dut0(self):
         self.butt(0, make_list_dok(), Doc.sort_time)

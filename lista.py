@@ -38,23 +38,20 @@ def make_list_dok():
         Doc("Karta PKO VISA Jola", "31.01.2026",
             "Karta VISA", "konto Aurum"),
 
-        Doc("Baleno Przegląd Gwarancyjny", "29.05.2021",
-            "33 197 km - maksymalny przebieg", "Suzuki Rybnik"),
+        Doc("Baleno Przegląd Gwarancyjny", "28.05.2022",
+            "46 021 km - maksymalny przebieg\n(co 20 000 km lub co rok)", "Suzuki Rybnik"),
 
         Doc("Baleno Badania Techniczne", "30.05.2022",
             "Po 3 latach użytkowania", "100 zł."),
 
-        Doc("Baleno PZU", "30.05.2021",
-            "Nr karty rabatowej 102 107 202 254", "1 614 zł."),
+        Doc("Baleno UNIQA", "30.05.2022",
+            "Polisa nr 2021-1220579634", "1 082 zł."),
 
         Doc("Komórka Jola", "27.03.2022",
             "Tel. +48 698 385 284 ", "T-Mobile"),
 
-        Doc("Komórka Zbyszek", "30.09.2021",
+        Doc("Komórka Zbyszek", "8.01.2022",
             "Tel. +48 604 733 938", "PIN1 5855\nPIN2 7419\nPUK1 14908437\nPUK2 65294624"),
-
-        Doc("Komórka Tosia", "30.06.2021",
-            "Tel. +48 724 104 003, 42 doładowania po 30 zł.", "Plus"),
 
         Doc("Kredyt PKO", "26.03.2022",
             "Rata 1 571.08 zł.", "pobierana automatycznie 26 dnia m-ca"),
@@ -134,9 +131,9 @@ def make_list_cyf():
         Cyf("Mama Dane",
             "PESEL 360402 11841", "Karta 9563\nTel. 692 394 293\nPIN 9885  ", 'drawable/ic_agn.png'),
 
-        Cyf("Cubase AI",
-            "Cubase AI 8.0 activation Code\n0240 7CDA RPFO TVSM VBLD XR00 14D4 8C45\n",
-            "Cubase AI 10.5 activation Code\n0240 7COA OZAG KJRS CNPO XK00 F142 8B32", 'drawable/ic_cub.png'),
+        Cyf("Cubase",
+            "Cubase LE AI Elements 10.5\ndownload access code\n112AE-GARBC-XENCG-VU616-A0006\n",
+            "Cubase LE AI Elements 10.5\nactivation code\n0240 7CON VRLS QPPT YCCZ BS00 1B6E 9234", 'drawable/ic_cub.png'),
 
         Cyf("PESEL",
             "Jola  641110 04689", "Zbyszek  640426 06934\nMama  360402 11841 ", 'drawable/ic_herb.png'),
@@ -177,13 +174,13 @@ def make_list_bday():
         Bday("Elena", "Czerwińska", 2018, 7, 23, "", "74080 Heilbronn, Heckenstrasse 56", "", "u",
              "drawable/ic_ele.png"),
 
-        Bday("Izabela", "Szurman", 1990, 8, 18, "+48 505 340 391", "44-194 Knurów, Mieszka I 17B/2",
+        Bday("Izabela", "Szurman", 1990, 8, 18, "+48 505 340 391", "44-195 Knurów, Mieszka I 17B/2",
              "izabela.stach@onet.eu", "u", "drawable/ic_iza.png"),
 
-        Bday("Błażej", "Szurman", 1990, 7, 29, "+48 517 507 343", "44-194 Knurów, Mieszka I 17B/2",
+        Bday("Błażej", "Szurman", 1990, 7, 29, "+48 517 507 343", "44-195 Knurów, Mieszka I 17B/2",
              "szumi.bs@gmail.com", "u", "drawable/ic_bla.png"),
 
-        Bday("Zofia", "Szurman", 2014, 4, 28, "", "44-194 Knurów, Mieszka I 17B/2", "", "u", "drawable/ic_zos.png"),
+        Bday("Zofia", "Szurman", 2014, 4, 28, "", "44-195 Knurów, Mieszka I 17B/2", "", "u", "drawable/ic_zos.png"),
 
         Bday("Florentyna", "Copiak", 1991, 11, 1, "+48 511 270 102", "44-121 Gliwice, Kozielska 63/3",
              "florentyna.szurman@gmail.com", "u", "drawable/ic_flo.png"),
@@ -196,6 +193,9 @@ def make_list_bday():
              "antoninaszurman@gmail.com", "u", "drawable/ic_ant.png"),
 
         Bday("Szymon", "Jaskuła", 1994, 10, 1, "+48 510 109 217", "43-300 Bielsko-Biała, Jacka Malczewskiego 8/32",
+             "", "u", "drawable/ic_szy.png"),
+
+        Bday("Marcelina", "Jaskuła", 2022, 8, 10, "", "43-300 Bielsko-Biała, Jacka Malczewskiego 8/32",
              "", "u", "drawable/ic_szy.png"),
 
         Bday("Maria", "Dzierżęga", 1963, 3, 28, "+48 661 326 123", "32-060 Liszki, Ściejowice 174", "", "u",
@@ -320,12 +320,12 @@ def make_map(lat, lon, zoom):
                 'Agnieszka, Jolanta i Zbigniew Szurman')
     marker_heart(mapka, 49.13556, 9.18322, '74080 Heilbronn, Heckenstrasse 56',
                  'Elena, Hanna, Patrycja i Łukasz Czerwińscy')
-    marker_heart(mapka, 50.23069, 18.66263, '44-194 Knurów, Mieszka I 17B/2',
+    marker_heart(mapka, 50.23069, 18.66263, '44-195 Knurów, Mieszka I 17B/2',
                  'Zofia, Izabela i Błażej Szurman')
     marker_heart(mapka, 50.30197, 18.64435, '44-121 Gliwice, Kozielska 63/3',
                  'Florentyna i Krystian Copiak')
     marker_heart(mapka, 49.81506, 19.0283, '44-300 Bielsko-Biała, Jacka Malczewskiego 8/32',
-                 'Antonina i Szymon Jaskuła')
+                 'Marcelina, Antonina i Szymon Jaskuła')
     marker_user(mapka, 50.74028, 16.64504, '58-200 Dzierżoniów, Oś.Błękitne 10G/7', 'Wiktor Morończyk')
     marker_user(mapka, 50.00158, 19.77959, '32-060 Liszki, Ściejowice 174',
                 'Jan, Maria i Krzysztof Dzierżęga')
