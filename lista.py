@@ -26,7 +26,7 @@ def make_list_dok():
         Doc("Ferbi Szczepienie", "5.11.2021",
             "Zwierzakowo Lek. Wet. Beata Mazur", "tel. +48 607 476 314"),
 
-        Doc("Internet Luksus", "1.01.2021",
+        Doc("Internet Luksus", "1.02.2023",
             "65 zł./m-c\nID 137\nPIN 561280", "sxr6h2dt"),
 
         Doc("Dom PZU", "30.12.2021",
@@ -78,8 +78,8 @@ def make_list_dok():
         Doc("Karta Revolut", "31.07.2024",
             "Mastercard", "Karta walutowa"),
 
-        Doc("Mama Rydułtowy", "28.02.2021",
-            "Zapłacić pomiędzy 16.01 a 28.02 ", "Odszkodowanie 1 550 zł."),
+        Doc("Mama Rydułtowy", "28.02.2022",
+            "Zapłacić 54 zł. pomiędzy 16.01 a 28.02 ", "Odszkodowanie 1 550 zł."),
 
         Doc("Mama Komórka", "6.04.2022",
             "tel. +48 692 394 293, 24 doładowania po 50 zł. do 16 dnia m-ca",
@@ -177,13 +177,13 @@ def make_list_bday():
         Bday("Elena", "Czerwińska", 2018, 7, 23, "", "74080 Heilbronn, Heckenstrasse 56", "", "u",
              "drawable/ic_ele.png"),
 
-        Bday("Izabela", "Szurman", 1990, 8, 18, "+48 505 340 391", "44-195 Knurów, Mieszka I 17B/2",
+        Bday("Izabela", "Szurman", 1990, 8, 18, "+48 505 340 391", "44-194 Knurów, Mieszka I 17B/2",
              "izabela.stach@onet.eu", "u", "drawable/ic_iza.png"),
 
-        Bday("Błażej", "Szurman", 1990, 7, 29, "+48 517 507 343", "44-195 Knurów, Mieszka I 17B/2",
+        Bday("Błażej", "Szurman", 1990, 7, 29, "+48 517 507 343", "44-194 Knurów, Mieszka I 17B/2",
              "szumi.bs@gmail.com", "u", "drawable/ic_bla.png"),
 
-        Bday("Zofia", "Szurman", 2014, 4, 28, "", "44-195 Knurów, Mieszka I 17B/2", "", "u", "drawable/ic_zos.png"),
+        Bday("Zofia", "Szurman", 2014, 4, 28, "", "44-194 Knurów, Mieszka I 17B/2", "", "u", "drawable/ic_zos.png"),
 
         Bday("Florentyna", "Copiak", 1991, 11, 1, "+48 511 270 102", "44-121 Gliwice, Kozielska 63/3",
              "florentyna.szurman@gmail.com", "u", "drawable/ic_flo.png"),
@@ -201,7 +201,7 @@ def make_list_bday():
         Bday("Maria", "Dzierżęga", 1963, 3, 28, "+48 661 326 123", "32-060 Liszki, Ściejowice 174", "", "u",
              "drawable/ic_mar.png"),
 
-        Bday("Krzysztof", "Dzierżęga", 1963, 3, 8, "+48 691 082 424", "32-060 Liszki, Ściejowice 174",
+        Bday("Krzysztof", "Dzierżęga", 1963, 4, 8, "+48 691 082 424", "32-060 Liszki, Ściejowice 174",
              "krzysztof.dzierzega@edu.pl", "u", "drawable/ic_krz.png"),
         Bday("Jan", "Dzierżęga", 1999, 10, 4, "+48 884 902 965", "32-060 Liszki, Ściejowice 174", "", "u",
              "drawable/ic_jan.png"),
@@ -278,7 +278,7 @@ def make_list_kosz():
              "PSZOK dodatkowe śmieci\nrezerwować wizyty na aplikacji\nhttps://pszok.gorzyce.pl\n"
              "odpady remontowo - budowlane tylko w soboty\ntel. 32 451 30 56 (w.21)",
              'drawable/ic_popiol.png'),
-        Kosz("Gabaryty", ["28.05.2021"], "", 'drawable/ic_gabaryt.png'),
+        Kosz("Gabaryty", ["28.05.2022"], "", 'drawable/ic_gabaryt.png'),
         Kosz("Emerytura",
              ["25.12.2020", "25.01.2021", "25.02.2021", "25.03.2021", "23.04.2021", "25.05.2021", "25.06.2021",
               "23.07.2021", "25.08.2021", "24.09.2021", "25.10.2021", "25.11.2021", "23.12.2021"],
@@ -320,7 +320,7 @@ def make_map(lat, lon, zoom):
                 'Agnieszka, Jolanta i Zbigniew Szurman')
     marker_heart(mapka, 49.13556, 9.18322, '74080 Heilbronn, Heckenstrasse 56',
                  'Elena, Hanna, Patrycja i Łukasz Czerwińscy')
-    marker_heart(mapka, 50.23069, 18.66263, '44-195 Knurów, Mieszka I 17B/2',
+    marker_heart(mapka, 50.23069, 18.66263, '44-194 Knurów, Mieszka I 17B/2',
                  'Zofia, Izabela i Błażej Szurman')
     marker_heart(mapka, 50.30197, 18.64435, '44-121 Gliwice, Kozielska 63/3',
                  'Florentyna i Krystian Copiak')
